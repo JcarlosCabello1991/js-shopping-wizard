@@ -1,6 +1,65 @@
 body{
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
     background-color: rgb(44, 204, 204);
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    width: 50%;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    border: 1px solid grey;
+    position: relative;
+}
+
+.logo{
+    margin-left: 5rem;
+}
+
+.title-logo{
+    display: flex;
+    justify-items: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    border: 1px solid grey;
+}
+
+.container-product{
+    display:grid;
+    grid-template-columns: 1fr 6fr 6fr;
+}
+
+.product-views{
+    display: flex;
+    justify-content: center;
+}
+
+.main-product{
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    background-image: url("https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg");
+    background-size: cover;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    border: 1px solid grey;
 }
 
