@@ -35,28 +35,31 @@ main{
     display: flex;
     justify-content: center;
     border: 1px solid grey;
+    height: fit-content;
     margin-top: -45px;
 }
 
 .container-product{
     display:grid;
     grid-template-columns: 1fr 6fr 6fr;
+    justify-items: center;
     gap: 20px;
     width: 100%;
 }
 
 .product-views{
-    grid-area: 1 / 1 / -1 / 2;
+    grid-area: 1 / 1 / 1 / 2;
     display: flex;
+    gap: 5px;
     flex-direction: column;
     justify-content: flex-start;
-    width: max-content;
+    width: fit-content;
+    height: fit-content;
     margin-top: 100px;
-    margin-left: 20px;
 }
 
 .product-views div {
-    height: 10rem;
+    height: 6.75vh;
     border: 1px solid black;
 }
 
@@ -70,8 +73,14 @@ main{
     margin-top: 100px;
 }
 
-img{
+img.pic-main-product{
     height: 50%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+img.thumbnail-product{
+    height: 100%;
     object-fit: cover;
     object-position: center center;
 }
