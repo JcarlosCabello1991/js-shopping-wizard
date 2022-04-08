@@ -15,7 +15,7 @@ function selectColor(e) {
     const smallImgs = document.querySelectorAll('.thumbnail-product');
     const pic = document.querySelector('.pic-main-product');
     pic.src = e.target.src;
-    
+
     smallImgs.forEach(img => {
         img.src = e.target.src;
     })
