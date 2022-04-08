@@ -26,7 +26,6 @@ header{
 .logo{
     display: flex;
     margin-left: -10rem;
-    /*visibility: hidden;*/
 }
 
 .title-logo{
@@ -38,6 +37,8 @@ header{
 .user-journey{
     display: grid;
     grid-template-columns: 3.14% 29% 3.14% 29% 3.14% 29% 3.14%;
+    margin-right: -50px;
+    justify-content: center;
     width: 80%;
     height: auto;
     visibility: hidden;

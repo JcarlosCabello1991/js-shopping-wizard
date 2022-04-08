@@ -11,3 +11,11 @@ addEventListener('click', selectColor);
 function selectColor (e) {
     console.log(e)
 }
+
+document.getElementById("btn-buy").addEventListener("click", toProfile);
+
+function toProfile(){
+    console.log("clickando");
+    document.getElementsByClassName("logo").item(0).style.visibility = "hidden";
+    document.getElementsByClassName("user-journey").item(0).style.visibility = "visible";
+}
