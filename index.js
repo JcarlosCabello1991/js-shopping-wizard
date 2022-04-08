@@ -28,7 +28,11 @@ function selectColor (e) {
 document.getElementById("btn-buy").addEventListener("click", toProfile);
 
 function toProfile(){
-    console.log("clickando");
     document.getElementsByClassName("logo").item(0).style.visibility = "hidden";
     document.getElementsByClassName("user-journey").item(0).style.visibility = "visible";
+    document.getElementsByClassName("container-product").item(0).style.visibility = "hidden";
+    document.getElementsByClassName("container-profile").item(0).style.visibility = "visible";
+    document.getElementsByClassName("footer-text").item(0).style.visibility = "hidden";
+    document.getElementsByClassName("buttons-form-profile").item(0).style.visibility = "visible";
+    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "black";
 }

@@ -25,7 +25,7 @@ header{
 
 .logo{
     display: flex;
-    margin-left: -10rem;
+    margin-left: -7rem;
 }
 
 .title-logo{
@@ -73,11 +73,11 @@ header{
 
 main{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     border: 1px solid grey;
     height: 80%;
     width: 100%;
-    margin-top: -45px;
+    position: relative;
 }
 
 .container-product{
@@ -86,7 +86,40 @@ main{
     justify-items: center;
     gap: 20px;
     width: 100%;
+    position: absolute;
 }
+
+/*profile contenedor de formulario*/
+.container-profile{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute; 
+    margin-left: 5rem;
+    margin-top: 5rem;   
+    width: 80%;
+    visibility: hidden;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-container label{
+    font-size: 20px;
+}
+
+.input-userName{
+    border: 3px solid orange;
+    border-radius: 5px;
+    width: 20%;
+    height: 30px;
+}
+
+/*profile contenedor de formulario*/
 
 .product-views{
     grid-area: 1 / 1 / 1 / 2;
@@ -215,13 +248,38 @@ button:hover{
     color: black
 }
 
+.buttons-form-profile{
+    display: flex;
+    flex-direction: row;
+    visibility: hidden;
+}
+
 footer {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     height: 10rem;
     border: 1px solid grey;
-    margin-top: -291px;
+    margin-top: -195px;
 }
 
+.footer-text{
+    display: flex;
+    margin-left: 45%;
+}
+
+.buttons-form-profile{
+    display: flex;
+    margin-left: 25%;
+    gap: 20px;
+}
+
+.button-form-profile{
+    background-color: black;
+    color: white;
+}
+
+.button-form-profile:hover{
+    background-color: greenyellow;
+    color: black
+}
