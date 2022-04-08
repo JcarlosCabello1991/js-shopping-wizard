@@ -120,6 +120,15 @@ main{
 }
 
 /*profile contenedor de formulario*/
+.profile-error {
+    border: 3px solid red;
+    background-color: rgb(235, 142, 142);
+    border-radius: 5px;
+    width: 20%;
+    height: 30px;
+}
+
+
 
 .product-views{
     grid-area: 1 / 1 / 1 / 2;
