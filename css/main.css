@@ -187,6 +187,7 @@ select {
 }
 
 .variants-color{
+    width: 90%;
     height: 100%;
     border: 2px solid black;
 }
