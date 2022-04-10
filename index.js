@@ -67,3 +67,42 @@ function checkInputs () {
     }
 }
 
+/*VALIDATION OF USERNAME
+SET TO HIDDEN AND VISIBLE THE SPAN ERROR MESSAGE
+FOCUS DE USERNAME AND EMAIL*/
+
+const userNameMsg = document.querySelector('#userName + span');
+let userName = document.getElementById("userName");
+userName.addEventListener("click", focusUserName);
+let flag = 0;
+
+function focusUserName(){
+    userName.value = "";
+    userName.focus();
+    if(userNameMsg.matches(".profile-error")){
+        userNameMsg.classList.remove("profile-error");
+        userNameMsg.textContent = "";
+        flag = 0;
+    }
+}
+
+let userEmail = document.getElementById("email");
+userEmail.addEventListener("click", checkUserName);
+
+function checkUserName(){
+    userEmail.focus();
+    const strRegex = /\s/;
+    if(userName.value.length <= 5 || userName.value.length >= 20 || strRegex.test(userName.value)){
+        userNameMsg.textContent = "cannot be empty, 5 to 20 characters without white spaces.";
+        userNameMsg.classList.add('profile-error');
+        flag = 1;
+    }
+}
+
+/*The flag variable will be used to
+deny the access to the following screen
+because there are some input fields to
+correct their values, only when flag will be 0
+the user could be go the next screen, the flag will be 
+validated when the user click on the next button*/
+
