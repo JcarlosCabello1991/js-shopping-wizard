@@ -24,12 +24,13 @@ function selectColor(e) {
 document.getElementById("btn-buy").addEventListener("click", toProfile);
 
 function toProfile(){
-    document.getElementsByClassName("logo").item(0).style.visibility = "hidden";
-    document.getElementsByClassName("user-journey").item(0).style.visibility = "visible";
-    document.getElementsByClassName("container-product").item(0).style.visibility = "hidden";
-    document.getElementsByClassName("container-profile").item(0).style.visibility = "visible";
-    document.getElementsByClassName("footer-text").item(0).style.visibility = "hidden";
-    document.getElementsByClassName("buttons-form-profile").item(0).style.visibility = "visible";
+    console.log('hola');
+    document.getElementsByClassName("logo").item(0).style.display = "none";
+    document.getElementsByClassName("user-journey").item(0).style.display = "grid";
+    document.getElementsByClassName("container-product").item(0).style.display = "none";
+    document.getElementsByClassName("container-profile").item(0).style.display = "flex";
+    document.getElementsByClassName("footer-text").item(0).style.display = "none";
+    document.getElementsByClassName("buttons-form-profile").item(0).style.display = "flex";
     document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "black";
 }
 
@@ -83,7 +84,6 @@ function checkEmail(){
         pwMsg.textContent = "";
         flag = 0;
     }
-    
     if(userEmail.value.length > 50 || userEmail.value.length < 4 || !strRegex.test(userEmail.value)){
         emailMsg.textContent = "Email is to short or is empty";
         emailMsg.classList.add('profile-error');
@@ -115,10 +115,14 @@ let btnNext = document.getElementById("nextButton");
 btnNext.addEventListener("click", checkConfirmPassword);
 
 function checkConfirmPassword(){
-    if(confirmPwd.value === pwd.value && flag == 0){
+    /*if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != ""){*/
         /*Hide the current screen and display the next one*/
-        console.log("CORRECTO")
-    }
+        const addr = document.getElementsByClassName("container-address").item(0);
+        addr.style.display = "flex";
+        document.getElementsByClassName("container-profile").item(0).style.display = "none";
+        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
+        document.getElementsByTagName("main").item(0).style.height = "100vh";
+    //}
 }
 
 /*CLEAR FORM*/
@@ -128,7 +132,7 @@ clearButton.addEventListener("click", clearForm);
 
 function clearForm(){
     const containerProfile = document.querySelector(".container-profile");
-    if(containerProfile.style.visibility == "visible"){
+    if(containerProfile.style.display == "flex"){
         const formContainer = document.querySelector(".form-container");
         const inputElements = formContainer.querySelectorAll("input");
         const spanElements = formContainer.querySelectorAll("span");
