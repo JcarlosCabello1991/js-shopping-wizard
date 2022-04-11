@@ -205,7 +205,7 @@ img.thumbnail-product{
     height: 50%;
     margin-top: 40px;
     margin-right: 8rem;
-    gap: 30px;
+    gap: 0px;
     background: #232323;
     color: aliceblue;
     -webkit-border-radius: 30px;
@@ -213,6 +213,24 @@ img.thumbnail-product{
 
 h2{
     margin-block-start: 0em;
+}
+
+#triangle{
+    width: 15px;
+    padding-left: 10px;
+}    
+.quantity{
+    text-align: center;
+    font-family: sans-serif;
+    font-variant: all-small-caps;
+    font-size: 18px;
+}
+.product-title {
+    text-align: left;
+    font-family: sans-serif;
+    font-variant: all-small-caps;
+    font-size: 25px;
+    padding-left: 10px;
 }
 
 .price-title{
