@@ -33,40 +33,6 @@ function toProfile(){
     document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "black";
 }
 
-
-// Functions for profile page
-const nextBtn = document.getElementById('nextButton');
-nextBtn.addEventListener('click', checkInputs);
-
-// Function check inputs on profile page for any value. 
-function checkInputs () {
-    const userName = document.getElementById('userName').value;
-    const pw = document.getElementById('password').value;
-    const email = document.getElementById('email').value;
-    const pwConfirm = document.getElementById('pwConfirm').value;
-
-    if (!userName) {
-        const userNameMsg = document.querySelector('#userName + span');
-        userNameMsg.textContent = 'Username cannot be empty.';
-        userNameMsg.classList.add('profile-error');
-    }
-    if (!email) {
-        const emailMsg = document.querySelector('#email + span');
-        emailMsg.textContent = 'Email cannot be empty.';
-        emailMsg.classList.add('profile-error');
-    }
-    if (!pw)  {
-        const pwMsg = document.querySelector('#password + span');
-        pwMsg.textContent = 'Password cannot be empty.';
-        pwMsg.classList.add('profile-error');
-    }
-    if (!pwConfirm) {
-       const pwConfirmMsg = document.querySelector('#pwConfirm + span');
-       pwConfirmMsg.textContent = 'Please confirm your password.'
-       pwConfirmMsg.classList.add('profile-error');
-    }
-}
-
 /*VALIDATION OF USERNAME
 SET TO HIDDEN AND VISIBLE THE SPAN ERROR MESSAGE
 FOCUS DE USERNAME AND EMAIL*/
@@ -86,23 +52,94 @@ function focusUserName(){
     }
 }
 
+const emailMsg = document.querySelector('#email + span');
 let userEmail = document.getElementById("email");
 userEmail.addEventListener("click", checkUserName);
 
 function checkUserName(){
     userEmail.focus();
     const strRegex = /\s/;
-    if(userName.value.length <= 5 || userName.value.length >= 20 || strRegex.test(userName.value)){
+    if(emailMsg.matches(".profile-error")){
+        emailMsg.classList.remove("profile-error");
+        emailMsg.textContent = "";
+        flag = 0;
+    }
+    if(userName.value.length < 5 || userName.value.length > 20 || strRegex.test(userName.value)){
         userNameMsg.textContent = "cannot be empty, 5 to 20 characters without white spaces.";
         userNameMsg.classList.add('profile-error');
         flag = 1;
     }
 }
 
-/*The flag variable will be used to
-deny the access to the following screen
-because there are some input fields to
-correct their values, only when flag will be 0
-the user could be go the next screen, the flag will be 
-validated when the user click on the next button*/
+const pwMsg = document.querySelector('#password + span');
+let pwd = document.getElementById("password");
+pwd.addEventListener("click", checkEmail);
+
+function checkEmail(){
+    pwd.focus();
+    const strRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    if(pwMsg.matches(".profile-error")){
+        pwMsg.classList.remove("profile-error");
+        pwMsg.textContent = "";
+        flag = 0;
+    }
+    
+    if(userEmail.value.length > 50 || userEmail.value.length < 4 || !strRegex.test(userEmail.value)){
+        emailMsg.textContent = "Email is to short or is empty";
+        emailMsg.classList.add('profile-error');
+        flag = 1;
+    }
+}
+
+const pwConfirmMsg = document.querySelector('#pwConfirm + span');
+let confirmPwd = document.getElementById("pwConfirm");
+confirmPwd.addEventListener("click", checkPassword);
+
+function checkPassword(){
+    confirmPwd.focus();
+    const strRegex = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,20}$/;
+    if(pwConfirmMsg.matches(".profile-error")){
+        pwConfirmMsg.classList.remove("profile-error");
+        pwConfirmMsg.textContent = "";
+        flag = 0;
+    }
+    console.log(pwd.value + " " + strRegex.test(pwd.value))
+    if(pwd.value.length > 20 || pwd.value.length < 8 || !strRegex.test(pwd.value)){
+        pwMsg.textContent = "Error does not meet password requirements";
+        pwMsg.classList.add('profile-error');
+        flag = 1;
+    }
+}
+
+let btnNext = document.getElementById("nextButton");
+btnNext.addEventListener("click", checkConfirmPassword);
+
+function checkConfirmPassword(){
+    if(confirmPwd.value === pwd.value && flag == 0){
+        /*Hide the current screen and display the next one*/
+        console.log("CORRECTO")
+    }
+}
+
+/*CLEAR FORM*/
+
+const clearButton = document.getElementById("clearButton");
+clearButton.addEventListener("click", clearForm);
+
+function clearForm(){
+    const containerProfile = document.querySelector(".container-profile");
+    if(containerProfile.style.visibility == "visible"){
+        const formContainer = document.querySelector(".form-container");
+        const inputElements = formContainer.querySelectorAll("input");
+        const spanElements = formContainer.querySelectorAll("span");
+
+        inputElements.forEach(element => element.value = "")
+        spanElements.forEach(element => {
+            element.textContent = "";
+            if(element.matches(".profile-error")){
+                element.classList.remove("profile-error");
+            }
+        });
+    }
+}
 
