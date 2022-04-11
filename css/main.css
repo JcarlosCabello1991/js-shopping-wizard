@@ -11,6 +11,7 @@ body{
     grid-template-rows: 1fr 6fr 1fr;
     width: 50%;
     box-sizing: border-box;
+    background: black;
 }
 
 header{
