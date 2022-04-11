@@ -75,7 +75,7 @@ main{
     display: flex;
     justify-content: flex-start;
     border: 1px solid grey;
-    height: 80%;
+    height: 100%;
     width: 100%;
     position: relative;
 }
@@ -237,6 +237,14 @@ select {
     border: 2px solid black;
 }
 
+/*SELECT FOR PHONE DATA*/
+
+.phone-data{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
+}
+
 .variants-color:hover{
     height: 100%;
     background-color: orange;
@@ -271,7 +279,7 @@ footer {
     width: 100%;
     height: 10rem;
     border: 1px solid grey;
-    margin-top: -195px;
+    margin-top: 0px;
 }
 
 .footer-text{

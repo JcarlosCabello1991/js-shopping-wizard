@@ -117,7 +117,9 @@ btnNext.addEventListener("click", checkConfirmPassword);
 function checkConfirmPassword(){
     if(confirmPwd.value === pwd.value && flag == 0){
         /*Hide the current screen and display the next one*/
-        console.log("CORRECTO")
+        const addr = document.getElementsByClassName("container-address").item(0).style.visibility = "visible";
+        document.getElementsByClassName("container-profile").item(0).style.visibility = "hidden";
+        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
     }
 }
 
