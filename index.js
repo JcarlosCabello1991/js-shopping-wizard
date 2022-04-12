@@ -1,5 +1,6 @@
 let currentPage = 'product';
 const arrayPrefix = [376,34,33,49,30];
+const mainProductDiv = document.querySelector('.main-product');
 // Get color elements from product page, product details.
 const colorElements = document.querySelectorAll('.variants-color');
 
@@ -14,7 +15,7 @@ colorElements.forEach(color => {
 function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
     const smallImgs = document.querySelectorAll('.thumbnail-product');
-    const pic = document.querySelector('.pic-main-product');
+    const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
 
     smallImgs.forEach(img => {
@@ -113,20 +114,23 @@ function checkPassword(){
 }
 
 let btnNext = document.getElementById("nextButton");
-btnNext.addEventListener("click", checkConfirmPassword);
+btnNext.addEventListener("click", validatePage);
 
-function checkConfirmPassword(){
+function validatePage(){
     
-    if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
+    /*if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
         /*Hide the current screen and display the next one*/
+
         flag = 0;
         const addr = document.getElementsByClassName("container-address").item(0);
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
         document.getElementsByTagName("main").item(0).style.height = "70vh";
-        currentPage = 'address';
-    }else if (currentPage ==  1 && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
+        //currentPage = 'shipping';
+        console.log(currentPage);
+         currentPage = 'finish'
+    /*}else if (currentPage ==  1 && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
         checkUserName();
         checkEmail();
         checkPassword();
@@ -135,7 +139,7 @@ function checkConfirmPassword(){
             pwConfirmMsg.classList.add('profile-error');
             flag = 1;
         }
-    }else if(currentPage == 'address'){ //Shows the page Shipping
+    }else */if(currentPage == 'address'){ //Shows the page Shipping
     
         if(checkAddress() == false){
             //mensajes de error
@@ -143,15 +147,41 @@ function checkConfirmPassword(){
         }else{
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
-            document.getElementsByClassName("container-shipping").item(0).style.display="flex";
+            document.getElementsByClassName("container-shipping").item(0).style.display="grid";
             document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
-            currentPage = 'shipping'
+            currentPage = 'shipping';
         }
+    }else if(currentPage == 'shipping'){
+        document.getElementsByClassName("container-address").item(0).style.display="none";
+        document.getElementsByClassName("container-shipping").item(0).style.display="grid";
+        currentPage = 'finish';
+    }else if(currentPage == 'finish'){
+        document.getElementsByClassName("container-address").item(0).style.display="none";
+        document.getElementsByClassName("container-shipping").item(0).style.display="none";
+        document.getElementsByClassName("container-finish").item(0).style.display="flex";
+        showShoppingDetails();
     }
 }
 
+function showShoppingDetails(){
+    document.getElementById("description-price").textContent = document.getElementById("price").textContent;
+    document.getElementById("img-order").src = document.getElementById("mainProduct").src;
+    document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;console.log(document.getElementById("size-shirt").value)
+    document.getElementById("description-color").style.backgroundColor = document.getElementById("color-1").alt;
+    document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(document.getElementById("premiumShipping").textContent);
+}
 
+document.getElementById("buyNow").addEventListener("click", buyNowPressed);
 
+function buyNowPressed(){
+    if(!document.getElementById("checkbox-delivery").checked){
+        document.getElementById("error-checkedButton").classList.add("profile-error");
+        document.getElementById("error-checkedButton").textContent = "Please accept the terms and conditions";
+    }else{
+        document.getElementById("error-checkedButton").classList.remove("profile-error");
+        document.getElementById("error-checkedButton").textContent = "";
+    }
+}
 
 
 
@@ -203,7 +233,8 @@ prefixes.addEventListener('change', function (e) {
     }
 });
 
-/*CLEAR FORM*/
+
+/* CLEAR FORM */
 const clearButton = document.getElementById("clearButton");
 clearButton.addEventListener("click", clearForm);
 

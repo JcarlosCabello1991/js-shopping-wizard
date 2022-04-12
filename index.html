@@ -40,23 +40,23 @@
             <div class="container-product">
                 <div class="product-views">
                     <div class = "container-product-view">
-                        <img class="thumbnail-product" src="https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg">
+                        <img class="thumbnail-product" src="./assets/pngwing.com.png">
                     </div>
                     <div class = "container-product-view">
-                        <img class="thumbnail-product" src="https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg">
+                        <img class="thumbnail-product" src="./assets/pngwing.com.png">
                     </div>
                     <div class = "container-product-view">
-                        <img class="thumbnail-product" src="https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg">
+                        <img class="thumbnail-product" src="./assets/pngwing.com.png">
                     </div>
                     <div class = "container-product-view">
-                        <img class="thumbnail-product" src="https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg">
+                        <img class="thumbnail-product" src="./assets/pngwing.com.png">
                     </div>
                     <div class = "container-product-view">
-                        <img class="thumbnail-product" src="https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg">
+                        <img class="thumbnail-product" src="./assets/pngwing.com.png">
                     </div>
                 </div>
                 <div class="main-product">
-                    <img class="pic-main-product" src="https://images-na.ssl-images-amazon.com/images/I/51r%2BtJ3RiPL._AC_UL1200_.jpg">
+                    <img id ="mainProduct" class="pic-main-product" src="./assets/pngwing.com.png">
                 </div>
                 <div class="details-product">
                     <h2>Assembler's face mask</h2>
@@ -69,7 +69,7 @@
                     <div class="size-title">
                         <span>Size</span>
                         <div class="size-select">
-                            <select name="size">
+                            <select id ="size-shirt" name="size">
                                 <option value="Small">Small</option>
                                 <option value="Medium">Medium</option>
                                 <option value="Large">Large</option>
@@ -79,7 +79,7 @@
                     <div class="color-title">
                         <span>Color</span>
                         <div class="face-mask-colors">
-                            <img id ="color-1" class="variants-color" src="./assets/pngwing.com.png">
+                            <img id ="color-1" class="variants-color" src="./assets/pngwing.com.png" alt ="green">
                             <img id ="color-2" class="variants-color" src="./assets/pngwing1.com.png">
                         </div>
                     </div>
@@ -151,8 +151,61 @@
                     <input type="checkbox" id="regular-address" class="regular-address"/>This is my regular address.</label>
             </section>
             <section class="container-shipping">
-                <h2>Shipping</h2>
+                <div class="shipping-column">
+                    <h2>Shipping</h2>
+                    <div class="shipping-type">
+                        <h3>Shipping type</h3>
+                        <label for="free-shipping"><input type="radio" id="free-shipping" name="free-shipping" value="Free Shipping">
+                        Free shipment (72H)</label>
+                        <label for="extra-shipping"><input type="radio" id="extra-shipping" name="extra-shipping" value="Extra Shipping">
+                        Extra shipping (48H) + 5€</label>
+                        <label for="premium-shipping"><input type="radio" id="premium-shipping" name="premium-shipping" value="Premium Shipping">Premium (24H) +10€</label>
+                    </div>
+                    <div class="delivery-date">
+                        <h3>Your order will arrive:</h3>
+                        <p>ESTIMATE DELIVERY DATE:</p>
+                        <p>Between <span class="delivery-date-1">July 21, 2022 16:00</span> and <span class="delivery-date-2">July 21, 2022 20:00</span></p>
+                    </div>
+                    <div class="gift-options">
+                        <label for="gift-checkbox"><input type="checkbox" id="gift-checkbox" class="gift-checkbox"> Is it a gift?</label>
+                        <textarea name="gift-message" id="gift-message" cols="26" rows="8"></textarea>
+                        <label for="gift-picture">Gift wrapper image</label>
+                        <input type="file" accept="image/*" id="gift-wrap-picture" value="Select image">
+                    </div>
+                </div>
+                <div class="timer-column">
+                    <p>You started registering</p>
+                    <p class="timer-display"> minutes ago.</p>
+                    <br>
+                    <p>Hurry up!</p>
+                </div>
             </section>
+            <div class="container-finish">
+                <section class="container-Purchase">
+                    <h2>Your purchase</h2>
+                    <article class ="product-information">
+                        <img src="" id = "img-order">
+                        <article class="order-description">
+                            <h3>Brown</h3>
+                            <p>Size: <span id = "description-size" class="description-size"></span></p>
+                            <p>Color: <div id ="description-color" class="description-color"></div></p>
+                            <p>ESTIMATE DELIVERY DATE</p>
+                            <p>Between 21 of july of 2022 to 22 of july of 2022</p>
+                        </article>
+                    </article>
+                    <label for="checkbox-delivery" value="checkbox-delivery">
+                        <input type="checkbox" id="checkbox-delivery" class="checkbox-delivery"/>I have read and i accept the terms and conditions.
+                    </label>
+                    <p id="error-checkedButton" class ="uncheckedbox"></p>
+                    <button id="buyNow" class = "button-buyNow">Buy now</button>
+                </section>
+                <section class="container-order">
+                    <p>Your order</p>
+                    <p>Face-mask: <span id = "description-price" class ="description-price"></span></p>
+                    <p>Premium Shipping: <span id = "premiumShipping" class ="premium-shipping">9.99€</span></p>
+                    <p>Total: <span id ="total-price" class="total-price">50.00€</span></p>
+                </section>
+            </div>
         </main>
         <footer>
             <div class="footer-text">
