@@ -114,54 +114,46 @@ function checkPassword(){
 }
 
 let btnNext = document.getElementById("nextButton");
-btnNext.addEventListener("click", validatePage);
+btnNext.addEventListener("click", goToNext);
 
-function validatePage(){
-    
-    /*if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
-        /*Hide the current screen and display the next one*/
+function checkProfile () {
+    // checkUserName();
+    // checkEmail();
+    // checkPassword();
+    // if (confirmPwd.value === pwd.value && flag == 0) {
+        return true;
+    // } else {
+    //     return false;
+    // }
+}
 
-        flag = 0;
-        const addr = document.getElementsByClassName("container-address").item(0);
-        addr.style.display = "flex";
+function goToNext () {
+    if (currentPage == 'profile' && checkProfile() === true) {
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
+        document.getElementsByClassName("container-address").item(0).style.display = "flex";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
         document.getElementsByTagName("main").item(0).style.height = "70vh";
-        //currentPage = 'shipping';
-        console.log(currentPage);
-         currentPage = 'finish'
-    /*}else if (currentPage ==  1 && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
-        checkUserName();
-        checkEmail();
-        checkPassword();
-        if(confirmPwd.value == "" || confirmPwd.value != pwd.value){
-            pwConfirmMsg.textContent = "Error does not meet password requirements";
-            pwConfirmMsg.classList.add('profile-error');
-            flag = 1;
-        }
-    }else */if(currentPage == 'address'){ //Shows the page Shipping
-    
-        if(checkAddress() == false){
+        currentPage = 'address';
+    } else if (currentPage == 'address' )
+        if (checkAddress() == false){
             //mensajes de error
             //alert("Some field is wrong!!")
-        }else{
-            //ocultamos esta pagina y hacemos visible la siguiente
+        } else {
             document.getElementsByClassName("container-address").item(0).style.display="none";
             document.getElementsByClassName("container-shipping").item(0).style.display="grid";
             document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
             currentPage = 'shipping';
-        }
-    }else if(currentPage == 'shipping'){
+    } else if (currentPage == 'shipping'){
         document.getElementsByClassName("container-address").item(0).style.display="none";
         document.getElementsByClassName("container-shipping").item(0).style.display="grid";
         currentPage = 'finish';
-    }else if(currentPage == 'finish'){
-        document.getElementsByClassName("container-address").item(0).style.display="none";
+    } else if (currentPage == 'finish'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         showShoppingDetails();
     }
 }
+
 
 function showShoppingDetails(){
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
@@ -239,6 +231,55 @@ prefixes.addEventListener('change', function (e) {
             break;
     }
 });
+
+// Shipping page functions
+
+// Shipping date info appears when you choose shipping option
+
+const shippingInputs = document.querySelectorAll('.shipping-type input');
+const giftCheckbox = document.querySelector('.gift-checkbox');
+
+shippingInputs.forEach(input => {
+    input.addEventListener('change', function (e) {
+        let hrs;
+        if (e.target.id == 'free-shipping') {
+            hrs = 72;
+        } else if (e.target.id == 'extra-shipping') {
+            hrs = 48;
+        } else if (e.target.id == 'premium-shipping') {
+            hrs = 24;
+        }
+        displayDelivery(hrs);
+    })
+});
+
+function displayDelivery (deliveryInHours) {
+    const spanOne = document.querySelector('.delivery-date-one');
+    const spanTwo = document.querySelector('.delivery-date-two');
+    let msgOne = msgTwo = '';
+
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    let delDateOne = new Date(new Date().getTime() + (deliveryInHours * 60 * 60 * 1000));
+    let delDateTwo = new Date(new Date().getTime() + ((deliveryInHours + 24) * 60 * 60 * 1000));
+
+    msgOne = `${delDateOne.toLocaleString('en-GB', options)} ${delDateOne.getHours()}:${delDateOne.getMinutes()}h.`;
+    msgTwo =  `${delDateTwo.toLocaleString('en-GB', options)} ${delDateTwo.getHours()}:${delDateTwo.getMinutes()}h.`;
+
+    spanOne.textContent = msgOne;
+    spanTwo.textContent = msgTwo;
+}
+
+giftCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+        document.querySelector('.gift-options').style.display = 'block';
+    } else if (!this.checked) {
+        document.querySelector('.gift-options').style.display = 'none';
+    }
+})
+
+// let getThreeDayShipping () {
+
+// }
 
 
 /* CLEAR FORM */
