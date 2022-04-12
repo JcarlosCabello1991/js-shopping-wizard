@@ -13,8 +13,7 @@ body{
     grid-template-rows: 0fr 0fr 0fr;
     width: -webkit-fill-available;
     box-sizing: border-box;
-    background: #000000;
-    
+    background: #000000; 
 
 }
 
@@ -40,7 +39,7 @@ header{
 #destacada{
     width: 40%;
     float: right;
-    margin-top:-44px;
+    margin-top:-54px;
     margin-bottom: -3%;
     position: relative;
 }
@@ -277,7 +276,6 @@ h2{
 
 .color-title{
     font-family: system-ui;
-    margin: 20px 20px;
 }
 
 
@@ -288,20 +286,24 @@ select {
 
 .face-mask-colors{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 50px;
-    height: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
 }
 
 .variants-color{
-    width: 90%;
-    height: 100%;
-    border: 2px solid black;
+    width: 70%;
+    height: 80%;
+    background: #424242;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px 25px;
+    
 }
 
 .variants-color:hover{
-    height: 100%;
-    background-color: orange;
+    height: 80%;
+    background-color: rgb(35, 35, 35);
     opacity: 90%;
 }
 
