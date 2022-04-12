@@ -114,45 +114,55 @@ function checkPassword(){
 }
 
 let btnNext = document.getElementById("nextButton");
-btnNext.addEventListener("click", goToNext);
+btnNext.addEventListener("click", validatePage);
 
-function checkProfile () {
-    // checkUserName();
-    // checkEmail();
-    // checkPassword();
-    // if (confirmPwd.value === pwd.value && flag == 0) {
-        return true;
-    // } else {
-    //     return false;
-    // }
-}
+function validatePage(){
+    
+    /*if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
+        /*Hide the current screen and display the next one*/
 
-function goToNext () {
-    if (currentPage == 'profile' && checkProfile() === true) {
+        flag = 0;
+        const addr = document.getElementsByClassName("container-address").item(0);
+        addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
-        document.getElementsByClassName("container-address").item(0).style.display = "flex";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
         document.getElementsByTagName("main").item(0).style.height = "70vh";
-        currentPage = 'address';
-    } else if (currentPage == 'address' )
-        if (checkAddress() == false){
+        //currentPage = 'shipping';
+        console.log(currentPage);
+         currentPage = 'finish'
+    /*}else if (currentPage ==  1 && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
+        checkUserName();
+        checkEmail();
+        checkPassword();
+        if(confirmPwd.value == "" || confirmPwd.value != pwd.value){
+            pwConfirmMsg.textContent = "Error does not meet password requirements";
+            pwConfirmMsg.classList.add('profile-error');
+            flag = 1;
+        }
+    }else */if(currentPage == 'address'){ //Shows the page Shipping
+    
+        if(checkAddress() == false){
             //mensajes de error
             //alert("Some field is wrong!!")
-        } else {
+        }else{
+            //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
             document.getElementsByClassName("container-shipping").item(0).style.display="grid";
             document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
             currentPage = 'shipping';
-    } else if (currentPage == 'shipping'){
+        }
+    }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-address").item(0).style.display="none";
         document.getElementsByClassName("container-shipping").item(0).style.display="grid";
         currentPage = 'finish';
-    } else if (currentPage == 'finish'){
+    }else if(currentPage == 'finish'){
+        document.getElementsByClassName("container-address").item(0).style.display="none";
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         showShoppingDetails();
     }
 }
+
 
 
 function showShoppingDetails(){
