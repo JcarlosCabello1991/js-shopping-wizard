@@ -114,6 +114,10 @@ main{
     background-color: red;
 }
 
+#complete, #thanks, #complete1, #thanks1{
+    display:none;
+}
+
 .container-finish{
     display: flex;
     justify-content: center;
