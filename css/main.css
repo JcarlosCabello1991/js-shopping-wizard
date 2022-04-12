@@ -8,7 +8,7 @@ body{
     background-color: white;
 }
 
-.container{
+.container {
     display: grid;
     grid-template-rows: 0fr 0fr 0fr;
     width: -webkit-fill-available;
@@ -59,13 +59,12 @@ header{
 
 /* top bar journey*/
 .user-journey{
-    display: grid;
+    display: none;
     grid-template-columns: 3.14% 29% 3.14% 29% 3.14% 29% 3.14%;
     margin-right: -50px;
     justify-content: center;
     width: 80%;
     height: auto;
-    visibility: hidden;
 }
 
 .step-journey{
@@ -117,15 +116,24 @@ main{
 }
 
 /*profile contenedor de formulario*/
-.container-profile{
-    display: flex;
+.container-profile {
+    display: none;
     justify-content: flex-start;
     flex-direction: column;
-    position: absolute; 
+    position: absolute;
     margin-left: 5rem;
-    margin-top: 5rem;   
+    margin-top: 5rem;
     width: 80%;
-    visibility: hidden;
+}
+
+.container-address{
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 8rem;
+    width: 80%;
+    height: 80%;
 }
 
 .form-container{
@@ -139,11 +147,33 @@ main{
     font-size: 20px;
 }
 
-.input-userName{
+.input-userName, .input-address {
     border: 3px solid orange;
     border-radius: 5px;
     width: 20%;
     height: 30px;
+}
+
+.input-country{
+    border: 3px solid orange;
+    border-radius: 5px;
+    width: 20.5%;
+}
+
+.phone-prefix{
+    border: 3px solid orange;
+    border-radius: 5px 0px 0px 5px;
+    width: 20px;
+}
+.phone-data{
+    width: 20rem;
+    font-size: 0.74rem;
+}
+
+.phone{
+    border: 3px solid orange;
+    border-radius: 0px 5px 0px 5px;
+    font-size: 0.74rem;
 }
 
 /*profile contenedor de formulario*/
@@ -152,13 +182,11 @@ main{
     background-color: rgb(235, 142, 142);
     border-radius: 5px;
     width: 20%;
-    height: 30px;
+    height: 50px;
 }
 
-
-
 .product-views{
-    grid-area: 1 / 1 / 1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
     display: flex;
     gap: 5px;
     flex-direction: column;
@@ -301,6 +329,14 @@ select {
     
 }
 
+/*SELECT FOR PHONE DATA*/
+
+.phone-data{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
+}
+
 .variants-color:hover{
     height: 80%;
     background-color: rgb(35, 35, 35);
@@ -328,12 +364,6 @@ button:hover{
     color: #fcf6f6
 }
 
-.buttons-form-profile{
-    display: flex;
-    flex-direction: row;
-    visibility: hidden;
-}
-
 footer {
     display: flex;
     align-items: center;
@@ -348,8 +378,11 @@ footer {
 }
 
 .buttons-form-profile{
-    display: flex;
-    margin-left: 25%;
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    margin-right: 15%;
     gap: 20px;
 }
 
@@ -362,3 +395,21 @@ footer {
     background-color: greenyellow;
     color: black
 }
+
+
+.phone-data {
+    display: flex;
+}
+
+.phone-data select {
+    width: 5rem;
+    background-color: white;
+    font-size: 1.2rem;
+}
+
+.phone-data .phone {
+    width: 20rem;
+    font-size: 1.2rem;
+}
+
+

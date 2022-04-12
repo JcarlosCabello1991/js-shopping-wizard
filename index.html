@@ -108,16 +108,64 @@
                     <input type="text" id ="userName" class="input-userName"/>
                     <span></span>
                     <label for="email" value="email"><strong>E-mail</strong></label>
-                    <input type="text" id ="email" class="input-userName"/>
+                    <input type="email" id ="email" class="input-userName"/>
                     <span></span>
                     <label for="password" value="password"><strong>Password</strong></label>
-                    <input type="text" id ="password" class="input-userName"/>
+                    <input type="password" id ="password" class="input-userName"/>
                     <span></span>
                     <label for="Confirm password" value="Confirm password"><strong>Confirm password</strong></label>
-                    <input type="text" id ="pwConfirm" class="input-userName"/>
+                    <input type="password" id ="pwConfirm" class="input-userName"/>
                     <span></span>
                 </div>
             </div>
+            <section class="container-address">
+                <h2>Address</h2>
+                <div class="form-container">
+                    <label for="firstName" value="firstName"><strong>First Name</strong></label>
+                    <input type="text" id ="firstName" class="input-address" required>
+                    <span></span>
+                    <label for="lastName" value="lastName"><strong>Last Name</strong></label>
+                    <input type="text" id ="lastName" class="input-address" required>
+                    <span></span>
+                    <label for="dateofbirth" value="dateofbirth"><strong>Date of Birth</strong></label>
+                    <input type="dates" id ="dateOfBirth" class="input-address" required>
+                    <span></span>
+                    <label for="Address 1" value="Address 1"><strong>Address 1</strong></label>
+                    <input type="text" id ="address1" class="input-address" required>
+                    <span></span>
+                    <label for="Address 2" value="Address 2"><strong>Address 2</strong></label>
+                    <input type="text" id ="address2" class="input-address">
+                    <span></span>
+                    <label for="Postcode" value="postCode"><strong>Postcode</strong></label>
+                    <input type="numbers" id ="postCode" class="input-address" required>
+                    <span></span>
+                    <label for="Country" value="country"><strong>Country</strong></label>
+                    <select name="country" class="input-country" required>
+                        <option value="Andorra">Andorra</option>
+                        <option value="España">España</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Grecia">Grecia</option>
+                    </select>
+                    <span></span>
+                    <label for="Phone" value="phone"><strong>Phone</strong></label>
+                    <div class="phone-data">
+                        <select id = "phone-prefix" name="phone-prefix" class="phone-prefix" required>
+                            <option value="and" selected>AND</option>
+                            <option value="esp">ESP</option>
+                            <option value="fra">FRA</option>
+                            <option value="deu">DEU</option>
+                            <option value="grc">GRC</option>
+                        </select>
+                        <input id = "phone" name="phone" type="tel" class="phone" required>
+                    </div>
+                    <span></span>
+                    <label for="Regular Address" value="regular-address">
+                    <input type="checkbox" id="regular-address" class="regular-address"/>This is my regular address.</label>
+            </section>
+            <section class="container-shipping">
+                <h2>Shipping</h2>
+            </section>
         </main>
         <footer>
             <div class="footer-text">
