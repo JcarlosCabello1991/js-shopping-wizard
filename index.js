@@ -180,6 +180,13 @@ function buyNowPressed(){
     }else{
         document.getElementById("error-checkedButton").classList.remove("profile-error");
         document.getElementById("error-checkedButton").textContent = "";
+        document.getElementById("complete").style.display="flex";
+        document.getElementById("thanks").style.display="flex";
+        document.getElementById("yourOrder").textContent = "Payment details"
+        document.getElementById("buyNow").style.display ="none";
+        document.getElementById("checkbox-delivery").style.display ="none";
+        document.getElementById("clearButton").style.display ="none";
+        document.getElementById("nextButton").style.display ="none";
     }
 }
 
