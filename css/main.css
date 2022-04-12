@@ -1,3 +1,5 @@
+@import 'css/normalize.css';
+
 body{
     width: 100%;
     height: 100%;
@@ -8,7 +10,7 @@ body{
 
 .container{
     display: grid;
-    grid-template-rows: 0fr 1fr 1fr;
+    grid-template-rows: 0fr 0fr 0fr;
     width: -webkit-fill-available;
     box-sizing: border-box;
     background: #000000;
@@ -24,6 +26,8 @@ header{
     height: auto;
     position: relative;
     background: #2c2c2c;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 .banner {
@@ -31,6 +35,7 @@ header{
     background-image: -webkit-linear-gradient( 90deg, rgb(21,21,21) 0%, rgb(44,44,44) 100%);
     background-image: -ms-linear-gradient( 90deg, rgb(21,21,21) 0%, rgb(44,44,44) 100%);
     border-bottom: #fc640c 15px solid;
+    height: max-content;
 }
 #destacada{
     width: 40%;
@@ -104,12 +109,12 @@ main{
 
 .container-product{
     display:grid;
-    grid-template-columns: 1fr 6fr 6fr;
+    grid-template-columns: 1fr 4fr 7fr;
     justify-items: center;
-    gap: 20px;
+    gap: 0px;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
 }
 
 /*profile contenedor de formulario*/
@@ -198,17 +203,11 @@ img.thumbnail-product{
 }
 
 .details-product {
-    grid-area: 1 / 3 / 2 / 4;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 50%;
-    margin-top: 40px;
-    margin-right: 8rem;
-    gap: 0px;
     background: #232323;
     color: aliceblue;
     -webkit-border-radius: 30px;
+    padding: 40px 20px;
+    margin: 30px;
 }
 
 h2{
@@ -217,54 +216,73 @@ h2{
 
 #triangle{
     width: 15px;
-    padding-left: 10px;
-}    
+    padding-left: 0px;
+    display: inline-block;
+} 
+
 .quantity{
     text-align: center;
     font-family: sans-serif;
     font-variant: all-small-caps;
     font-size: 18px;
+    margin: 0px;
+    padding: 10px 0px;
+    font-weight: bolder;
+}
+.size-select{
+    display: inline-block;
+    float: right;
+    padding-right: 2%;
 }
 .product-title {
     text-align: left;
     font-family: sans-serif;
     font-variant: all-small-caps;
-    font-size: 25px;
-    padding-left: 10px;
+    font-size: 28px;
+    display: inline-block;
+    margin: 0px;
 }
-
+.produt-subdetails{
+    color: #e2e2e2;
+    font-family: system-ui;
+    padding-left: 20px;
+}
 .price-title{
     display: grid;
     grid-area: 2 / 1 / 3 / 1;
 }
 
 .price-value{
-    font-size: 30px;
+    font-size: 26px;
+    font-family: system-ui;
+    padding-left: 20px;
+    color: #fb7626;
+    font-weight: 200;
 }
 
 .size-title{
-    display: grid;
-    grid-area: 3 / 1 / 4 / 1;
+    font-size: 16px;
+    font-family: system-ui;
+    padding-left: 20px;
+    font-weight: 200;
+    color: #a1a1a1;
 }
 
 .size-select select{
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 5px;
-    border: 3px solid black;
+    border: 2px solid #d4dbe1
 }
+
 
 .color-title{
-    display: grid;
-    grid-area: 4 / 1 / 5 / 1;
+    font-family: system-ui;
+    margin: 20px 20px;
 }
 
-
-.details-product > * {
-    font-weight: bold;
-}
 
 select {
-    height: 3rem;
+    height: 35px;
     width: 15rem;
 }
 
@@ -288,19 +306,24 @@ select {
 }
 
 button {
-    height: 3rem;
-    width: 6rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    border-radius: 4px;
-    background-color: black;
-    color: white;
+    float: right;
+    font-family: Avant Garde, sans-serif;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fcf6f6;
+    background-color: #ff8000;
+    border-radius: 40px;
+    padding-left: 33px;
+    padding-right: 33px;
+    border: 0;
+    width: -webkit-fill-available;
+    margin: 20px 15px;;
 }
 
 button:hover{
-    background-color: greenyellow;
-    color: black
+    background-color: #f77321;
+    color: #fcf6f6
 }
 
 .buttons-form-profile{
