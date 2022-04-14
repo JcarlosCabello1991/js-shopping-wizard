@@ -243,12 +243,12 @@ prefixes.addEventListener('change', function (e) {
 });
 
 // Shipping page functions
-
 // Shipping date info appears when you choose shipping option
 
 const shippingInputs = document.querySelectorAll('.shipping-type input');
 const giftCheckbox = document.querySelector('.gift-checkbox');
 
+// Calls displayDelivery(), depending on the user's shipping selection.
 shippingInputs.forEach(input => {
     input.addEventListener('change', function (e) {
         let hrs;
@@ -263,6 +263,8 @@ shippingInputs.forEach(input => {
     })
 });
 
+
+// Show the delivery message with correct dates and times.
 function displayDelivery (deliveryInHours) {
     const spanOne = document.querySelector('.delivery-date-one');
     const spanTwo = document.querySelector('.delivery-date-two');
@@ -279,6 +281,7 @@ function displayDelivery (deliveryInHours) {
     spanTwo.textContent = msgTwo;
 }
 
+// Display gift options if the gift checkbox is marked.
 giftCheckbox.addEventListener('change', function () {
     if (this.checked) {
         document.querySelector('.gift-options').style.display = 'block';
@@ -286,10 +289,6 @@ giftCheckbox.addEventListener('change', function () {
         document.querySelector('.gift-options').style.display = 'none';
     }
 })
-
-// let getThreeDayShipping () {
-
-// }
 
 
 /* CLEAR FORM */
