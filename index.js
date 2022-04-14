@@ -1,4 +1,5 @@
 let currentPage = 'product';
+const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
 // Get color elements from product page, product details.
@@ -118,7 +119,7 @@ btnNext.addEventListener("click", validatePage);
 
 function validatePage(){
     
-    /*if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
+    if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
         /*Hide the current screen and display the next one*/
 
         flag = 0;
@@ -129,17 +130,16 @@ function validatePage(){
         document.getElementsByTagName("main").item(0).style.height = "70vh";
         //currentPage = 'shipping';
         console.log(currentPage);
-         currentPage = 'finish'
-    /*}else if (currentPage ==  1 && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
+         currentPage = 'address'
+    }else if (currentPage ==  'profile' && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
         checkUserName();
         checkEmail();
         checkPassword();
         if(confirmPwd.value == "" || confirmPwd.value != pwd.value){
             pwConfirmMsg.textContent = "Error does not meet password requirements";
             pwConfirmMsg.classList.add('profile-error');
-            flag = 1;
         }
-    }else */if(currentPage == 'address'){ //Shows the page Shipping
+    }else if(currentPage == 'address'){ //Shows the page Shipping
     
         if(checkAddress() == false){
             //mensajes de error
@@ -152,14 +152,12 @@ function validatePage(){
             currentPage = 'shipping';
         }
     }else if(currentPage == 'shipping'){
-        document.getElementsByClassName("container-address").item(0).style.display="none";
-        document.getElementsByClassName("container-shipping").item(0).style.display="grid";
-        currentPage = 'finish';
-    }else if(currentPage == 'finish'){
-        document.getElementsByClassName("container-address").item(0).style.display="none";
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
+        document.getElementById("profile-journey3").style.backgroundColor = "black";        
+        document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
+        currentPage = 'finish';
     }
 }
 
@@ -268,3 +266,23 @@ function clearForm(){
         inputPhone.value = '+376 ';
     }
 }
+
+let timeOut = setTimeout(reset, miliseconds);
+
+//funtion to reset trhe pages when the time is over to 5 minutes
+function reset(){
+    document.getElementsByClassName("container-product").item(0).style.display="grid";
+    document.getElementsByClassName("container-profile").item(0).style.display="none";
+    document.getElementsByClassName("container-address").item(0).style.display="none";
+    document.getElementsByClassName("container-shipping").item(0).style.display="none";
+    document.getElementsByClassName("container-finish").item(0).style.display="none";
+}
+
+let time = 0;
+
+setInterval(function timeAdvertising(){
+    time++;
+    document.getElementById("timeAdvise").style.display = "flex";
+    document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
+    document.getElementById("hurry").textContent = "Hurry up!";
+}, 60000)
