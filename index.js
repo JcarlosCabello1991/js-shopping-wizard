@@ -348,4 +348,7 @@ setInterval(function timeAdvertising(){
     document.getElementById("timeAdvise").style.display = "flex";
     document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
     document.getElementById("hurry").textContent = "Hurry up!";
+    if(time == 5){
+        time -= time;
+    }
 }, 60000)
