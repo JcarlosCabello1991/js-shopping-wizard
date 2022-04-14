@@ -161,6 +161,8 @@ function validatePage(){
     }
 }
 
+
+
 function showShoppingDetails(){
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
     document.getElementById("img-order").src = document.getElementById("mainProduct").src;
@@ -237,6 +239,54 @@ prefixes.addEventListener('change', function (e) {
             break;
     }
 });
+
+// Shipping page functions
+// Shipping date info appears when you choose shipping option
+
+const shippingInputs = document.querySelectorAll('.shipping-type input');
+const giftCheckbox = document.querySelector('.gift-checkbox');
+
+// Calls displayDelivery(), depending on the user's shipping selection.
+shippingInputs.forEach(input => {
+    input.addEventListener('change', function (e) {
+        let hrs;
+        if (e.target.id == 'free-shipping') {
+            hrs = 72;
+        } else if (e.target.id == 'extra-shipping') {
+            hrs = 48;
+        } else if (e.target.id == 'premium-shipping') {
+            hrs = 24;
+        }
+        displayDelivery(hrs);
+    })
+});
+
+
+// Show the delivery message with correct dates and times.
+function displayDelivery (deliveryInHours) {
+    const spanOne = document.querySelector('.delivery-date-one');
+    const spanTwo = document.querySelector('.delivery-date-two');
+    let msgOne = msgTwo = '';
+
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    let delDateOne = new Date(new Date().getTime() + (deliveryInHours * 60 * 60 * 1000));
+    let delDateTwo = new Date(new Date().getTime() + ((deliveryInHours + 24) * 60 * 60 * 1000));
+
+    msgOne = `${delDateOne.toLocaleString('en-GB', options)} ${delDateOne.getHours()}:${delDateOne.getMinutes()}h.`;
+    msgTwo =  `${delDateTwo.toLocaleString('en-GB', options)} ${delDateTwo.getHours()}:${delDateTwo.getMinutes()}h.`;
+
+    spanOne.textContent = msgOne;
+    spanTwo.textContent = msgTwo;
+}
+
+// Display gift options if the gift checkbox is marked.
+giftCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+        document.querySelector('.gift-options').style.display = 'block';
+    } else if (!this.checked) {
+        document.querySelector('.gift-options').style.display = 'none';
+    }
+})
 
 
 /* CLEAR FORM */

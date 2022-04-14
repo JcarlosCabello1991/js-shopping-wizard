@@ -95,11 +95,15 @@ main{
     grid-template-columns: 3fr 1fr;
 }
 
-.shipping-column, .shipping-type, .gift-options {
+.shipping-column, .shipping-type {
     display: flex;
     flex-direction: column;
     width: 80%;
     gap: 1.5rem;
+}
+
+.gift-options {
+    display: none;
 }
 
 .timer-column {
@@ -207,7 +211,7 @@ main{
     background-color: rgb(235, 142, 142);
     border-radius: 5px;
     width: 20%;
-    height: 50px;
+    height: 30px;
 }
 
 .product-views{

@@ -160,22 +160,24 @@
                     <h2>Shipping</h2>
                     <div class="shipping-type">
                         <h3>Shipping type</h3>
-                        <label for="free-shipping"><input type="radio" id="free-shipping" name="free-shipping" value="Free Shipping">
+                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping">
                         Free shipment (72H)</label>
-                        <label for="extra-shipping"><input type="radio" id="extra-shipping" name="extra-shipping" value="Extra Shipping">
+                        <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">
                         Extra shipping (48H) + 5€</label>
-                        <label for="premium-shipping"><input type="radio" id="premium-shipping" name="premium-shipping" value="Premium Shipping">Premium (24H) +10€</label>
+                        <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) +10€</label>
                     </div>
                     <div class="delivery-date">
                         <h3>Your order will arrive:</h3>
                         <p>ESTIMATE DELIVERY DATE:</p>
-                        <p>Between <span class="delivery-date-1">July 21, 2022 16:00</span> and <span class="delivery-date-2">July 21, 2022 20:00</span></p>
+                        <p>Between <span class="delivery-date-one">July 21, 2022 16:00</span> and <span class="delivery-date-two">July 21, 2022 20:00</span></p>
                     </div>
-                    <div class="gift-options">
+                    <div class="gift-area">
                         <label for="gift-checkbox"><input type="checkbox" id="gift-checkbox" class="gift-checkbox"> Is it a gift?</label>
-                        <textarea name="gift-message" id="gift-message" cols="26" rows="8"></textarea>
-                        <label for="gift-picture">Gift wrapper image</label>
-                        <input type="file" accept="image/*" id="gift-wrap-picture" value="Select image">
+                        <div class="gift-options">
+                            <textarea name="gift-message" id="gift-message" cols="26" rows="8"></textarea>
+                            <label for="gift-picture">Gift wrapper image</label>
+                            <input type="file" accept="image/*" id="gift-wrap-picture" value="Select image">
+                        </div>
                     </div>
                 </div>
                 <div class="timer-column">
