@@ -154,6 +154,7 @@ function validatePage(){
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
+        document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
         document.getElementById("profile-journey3").style.backgroundColor = "black";        
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
@@ -168,7 +169,19 @@ function showShoppingDetails(){
     document.getElementById("img-order").src = document.getElementById("mainProduct").src;
     document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;console.log(document.getElementById("size-shirt").value)
     document.getElementById("description-color").style.backgroundColor = document.getElementById("color-1").alt;
-    document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(document.getElementById("premiumShipping").textContent);
+    document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(shippingPrice());
+}
+
+//obtain the price shipping
+function shippingPrice(){
+    let priceShipping = 0;
+    if(document.querySelector('input[name="shipping-option"]:checked').value == "Free Shipping") {
+        return priceShipping = 0;
+    }else if(document.querySelector('input[name="shipping-option"]:checked').value == "Extra Shipping"){
+        return priceShipping = 5;
+    }else if(document.querySelector('input[name="shipping-option"]:checked').value == "Premium Shipping"){
+        return priceShipping = 10;
+    }
 }
 
 document.getElementById("buyNow").addEventListener("click", buyNowPressed);
