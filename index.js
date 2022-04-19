@@ -150,8 +150,6 @@ function validatePage(){
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
         //document.getElementsByTagName("main").item(0).style.height = "150vh";
-        //currentPage = 'shipping';
-        console.log(currentPage);
          currentPage = 'address'
     }else if (currentPage ==  'profile' && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
         checkUserName();
@@ -176,14 +174,12 @@ function validatePage(){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
-        document.getElementById("profile-journey3").style.backgroundColor = "orange";        
+        document.getElementById("profile-journey3").style.backgroundColor = "orange";
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
         currentPage = 'finish';
     }
 }
-
-
 
 function showShoppingDetails(){
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
@@ -365,6 +361,11 @@ setInterval(function timeAdvertising(){
     document.getElementById("timeAdvise").style.display = "flex";
     document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
     document.getElementById("hurry").textContent = "Hurry up!";
+    setInterval(function () {
+        document.getElementById("timeAdviseToGo").textContent = "";
+        document.getElementById("hurry").textContent = "";
+    }, 5000);
+    
     if(time == 5){
         time -= time;
     }
