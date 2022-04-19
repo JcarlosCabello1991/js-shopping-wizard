@@ -1,5 +1,7 @@
 let currentPage = 'product';
+const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
+const mainProductDiv = document.querySelector('.main-product');
 // Get color elements from product page, product details.
 const colorElements = document.querySelectorAll('.variants-color');
 
@@ -14,7 +16,7 @@ colorElements.forEach(color => {
 function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
     const smallImgs = document.querySelectorAll('.thumbnail-product');
-    const pic = document.querySelector('.pic-main-product');
+    const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
 
     smallImgs.forEach(img => {
@@ -113,27 +115,29 @@ function checkPassword(){
 }
 
 let btnNext = document.getElementById("nextButton");
-btnNext.addEventListener("click", checkConfirmPassword);
+btnNext.addEventListener("click", validatePage);
 
-function checkConfirmPassword(){
+function validatePage(){
     
     if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
         /*Hide the current screen and display the next one*/
+
         flag = 0;
         const addr = document.getElementsByClassName("container-address").item(0);
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
         document.getElementsByTagName("main").item(0).style.height = "70vh";
-        currentPage = 'address';
-    }else if (currentPage ==  1 && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
+        //currentPage = 'shipping';
+        console.log(currentPage);
+         currentPage = 'address'
+    }else if (currentPage ==  'profile' && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
         checkUserName();
         checkEmail();
         checkPassword();
         if(confirmPwd.value == "" || confirmPwd.value != pwd.value){
             pwConfirmMsg.textContent = "Error does not meet password requirements";
             pwConfirmMsg.classList.add('profile-error');
-            flag = 1;
         }
     }else if(currentPage == 'address'){ //Shows the page Shipping
     
@@ -143,15 +147,61 @@ function checkConfirmPassword(){
         }else{
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
-            document.getElementsByClassName("container-shipping").item(0).style.display="flex";
+            document.getElementsByClassName("container-shipping").item(0).style.display="grid";
             document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
-            currentPage = 'shipping'
+            currentPage = 'shipping';
         }
+    }else if(currentPage == 'shipping'){
+        document.getElementsByClassName("container-shipping").item(0).style.display="none";
+        document.getElementsByClassName("container-finish").item(0).style.display="flex";
+        document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
+        document.getElementById("profile-journey3").style.backgroundColor = "black";        
+        document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
+        showShoppingDetails();
+        currentPage = 'finish';
     }
 }
 
 
 
+function showShoppingDetails(){
+    document.getElementById("description-price").textContent = document.getElementById("price").textContent;
+    document.getElementById("img-order").src = document.getElementById("mainProduct").src;
+    document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;console.log(document.getElementById("size-shirt").value)
+    document.getElementById("description-color").style.backgroundColor = document.getElementById("color-1").alt;
+    document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(shippingPrice());
+}
+
+//obtain the price shipping
+function shippingPrice(){
+    let priceShipping = 0;
+    if(document.querySelector('input[name="shipping-option"]:checked').value == "Free Shipping") {
+        return priceShipping = 0;
+    }else if(document.querySelector('input[name="shipping-option"]:checked').value == "Extra Shipping"){
+        return priceShipping = 5;
+    }else if(document.querySelector('input[name="shipping-option"]:checked').value == "Premium Shipping"){
+        return priceShipping = 10;
+    }
+}
+
+document.getElementById("buyNow").addEventListener("click", buyNowPressed);
+
+function buyNowPressed(){
+    if(!document.getElementById("checkbox-delivery").checked){
+        document.getElementById("error-checkedButton").classList.add("profile-error");
+        document.getElementById("error-checkedButton").textContent = "Please accept the terms and conditions";
+    }else{
+        document.getElementById("error-checkedButton").classList.remove("profile-error");
+        document.getElementById("error-checkedButton").textContent = "";
+        document.getElementById("complete").style.display="flex";
+        document.getElementById("thanks").style.display="flex";
+        document.getElementById("yourOrder").textContent = "Payment details"
+        document.getElementById("buyNow").style.display ="none";
+        document.getElementById("checkbox-delivery").style.display ="none";
+        document.getElementById("clearButton").style.display ="none";
+        document.getElementById("nextButton").style.display ="none";
+    }
+}
 
 
 
@@ -203,7 +253,56 @@ prefixes.addEventListener('change', function (e) {
     }
 });
 
-/*CLEAR FORM*/
+// Shipping page functions
+// Shipping date info appears when you choose shipping option
+
+const shippingInputs = document.querySelectorAll('.shipping-type input');
+const giftCheckbox = document.querySelector('.gift-checkbox');
+
+// Calls displayDelivery(), depending on the user's shipping selection.
+shippingInputs.forEach(input => {
+    input.addEventListener('change', function (e) {
+        let hrs;
+        if (e.target.id == 'free-shipping') {
+            hrs = 72;
+        } else if (e.target.id == 'extra-shipping') {
+            hrs = 48;
+        } else if (e.target.id == 'premium-shipping') {
+            hrs = 24;
+        }
+        displayDelivery(hrs);
+    })
+});
+
+
+// Show the delivery message with correct dates and times.
+function displayDelivery (deliveryInHours) {
+    const spanOne = document.querySelector('.delivery-date-one');
+    const spanTwo = document.querySelector('.delivery-date-two');
+    let msgOne = msgTwo = '';
+
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    let delDateOne = new Date(new Date().getTime() + (deliveryInHours * 60 * 60 * 1000));
+    let delDateTwo = new Date(new Date().getTime() + ((deliveryInHours + 24) * 60 * 60 * 1000));
+
+    msgOne = `${delDateOne.toLocaleString('en-GB', options)} ${delDateOne.getHours()}:${delDateOne.getMinutes()}h.`;
+    msgTwo =  `${delDateTwo.toLocaleString('en-GB', options)} ${delDateTwo.getHours()}:${delDateTwo.getMinutes()}h.`;
+
+    spanOne.textContent = msgOne;
+    spanTwo.textContent = msgTwo;
+}
+
+// Display gift options if the gift checkbox is marked.
+giftCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+        document.querySelector('.gift-options').style.display = 'block';
+    } else if (!this.checked) {
+        document.querySelector('.gift-options').style.display = 'none';
+    }
+})
+
+
+/* CLEAR FORM */
 const clearButton = document.getElementById("clearButton");
 clearButton.addEventListener("click", clearForm);
 
@@ -230,3 +329,26 @@ function clearForm(){
         inputPhone.value = '+376 ';
     }
 }
+
+let timeOut = setTimeout(reset, miliseconds);
+
+//funtion to reset trhe pages when the time is over to 5 minutes
+function reset(){
+    document.getElementsByClassName("container-product").item(0).style.display="grid";
+    document.getElementsByClassName("container-profile").item(0).style.display="none";
+    document.getElementsByClassName("container-address").item(0).style.display="none";
+    document.getElementsByClassName("container-shipping").item(0).style.display="none";
+    document.getElementsByClassName("container-finish").item(0).style.display="none";
+}
+
+let time = 0;
+
+setInterval(function timeAdvertising(){
+    time++;
+    document.getElementById("timeAdvise").style.display = "flex";
+    document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
+    document.getElementById("hurry").textContent = "Hurry up!";
+    if(time == 5){
+        time -= time;
+    }
+}, 60000)
