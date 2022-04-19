@@ -1,4 +1,5 @@
 let currentPage = 'product';
+let color = "";
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
@@ -6,6 +7,30 @@ const mainProductDiv = document.querySelector('.main-product');
 const smallImgs = document.querySelectorAll('.thumbnail-product');
 // Get color elements from product page, product details.
 const colorElements = document.querySelectorAll('.variants-color');
+
+/*****************************************************************************************/
+// Set event listeners for thumbnails, so that mouseenter calls hoverThumbnails function and mouseleave removes zoom on main product picture.
+smallImgs.forEach(img => {
+    img.addEventListener('mouseenter', function (e) {
+        hoverThumbnails(e);
+    })
+});
+
+smallImgs.forEach(img => {
+    img.addEventListener('mouseleave', function () {
+        const pic = document.querySelector('.pic-main-product');
+        pic.removeAttribute('style', 'transform: scale(1.3); transition: 0.75s ease-in-out');
+    })
+});
+
+// Change main product picture when hovering over miniature views to left side / product page.
+function hoverThumbnails (e) {
+    const mainProductDiv = document.querySelector('.main-product');
+    const pic = document.querySelector('.pic-main-product');
+    pic.src = e.target.src;
+    pic.setAttribute('style', 'transform: scale(1.3); transition: 0.75s ease-in-out');
+}
+/*****************************************************************************************/
 
 // Add event listener to each color option on product page, product details.
 colorElements.forEach(color => {
@@ -19,6 +44,13 @@ function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
+    
+    color = e.target.alt;
+    if(e.target.alt == "gold"){
+        document.getElementById("product-title").textContent = " ASSEMBLER GOLD EDITION"
+    }else{
+        document.getElementById("product-title").textContent = " ASSEMBLER WHITE EDITION"
+    }
 
     smallImgs.forEach(img => {
         img.src = e.target.src;
@@ -173,6 +205,8 @@ function validatePage(){
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
+        document.getElementsByClassName("container-Purchase").item(0).style.display = "flex";
+        document.getElementById("title-name-product").textContent = document.getElementById("product-title").textContent;
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
         document.getElementById("profile-journey3").style.backgroundColor = "orange";
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
@@ -182,10 +216,11 @@ function validatePage(){
 }
 
 function showShoppingDetails(){
+    document.getElementById("picmainproductOrder").src = document.getElementById("picmainproduct").src;
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
-    document.getElementById("img-order").src = document.getElementById("mainProduct").src;
+    document.getElementById("img-order").src = document.getElementById("picmainproduct").src;
     document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;console.log(document.getElementById("size-shirt").value)
-    document.getElementById("description-color").style.backgroundColor = document.getElementById("color-1").alt;
+    document.getElementById("description-color").style.backgroundColor = color;
     document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(shippingPrice());
 }
 
@@ -208,6 +243,8 @@ function buyNowPressed(){
         document.getElementById("error-checkedButton").classList.add("profile-error");
         document.getElementById("error-checkedButton").textContent = "Please accept the terms and conditions";
     }else{
+        document.getElementsByClassName("container-order").item(0).style.display = "flex";
+        document.getElementsByClassName("container-Purchase").item(0).style.display = "none";
         document.getElementById("error-checkedButton").classList.remove("profile-error");
         document.getElementById("error-checkedButton").textContent = "";
         document.getElementById("complete").style.display="flex";
