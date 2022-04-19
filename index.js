@@ -126,8 +126,8 @@ function validatePage(){
         const addr = document.getElementsByClassName("container-address").item(0);
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
-        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
-        document.getElementsByTagName("main").item(0).style.height = "70vh";
+        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
+        document.getElementsByTagName("main").item(0).style.height = "150vh";
         //currentPage = 'shipping';
         console.log(currentPage);
          currentPage = 'address'
