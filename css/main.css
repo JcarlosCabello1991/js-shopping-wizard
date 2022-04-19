@@ -1,4 +1,4 @@
-@import 'css/normalize.css';
+@import './normalize.css';
 
 body{
     width: 100%;
@@ -160,7 +160,7 @@ main{
 .description-color{
     width: 1rem;
     height: 1rem;
-    background-color: red;
+    background-color: white;
 }
 
 #complete, #thanks, #complete1, #thanks1{
@@ -213,7 +213,7 @@ main{
     height: 80%;
 }
 
-.form-container, form{
+.form-container{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -224,6 +224,17 @@ main{
     padding: 30px 0px;
     border-radius: 10px;
     border: 3px solid gray;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40rem;
+    position: relative;
+    text-align: center;
+    margin: 20px auto;
+    padding: 30px 0px;
 }
 
 .form-container label{
@@ -505,4 +516,15 @@ footer {
     font-size: 1.2rem;
 }
 
-
+.timeAdvise{
+    z-index: 1;
+    display: none;
+    width:300px;
+    height: 130px;
+    margin-left: -50%;
+    margin-bottom: -50%;
+    border-radius: 10px;
+    border: 2px solid #ababab;
+    background: black;
+    color: white;
+}

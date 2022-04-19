@@ -1,5 +1,5 @@
 let currentPage = 'product';
-let color = "";
+let color = "white";
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
@@ -220,10 +220,11 @@ function validatePage(){
 
 
 function showShoppingDetails(){
+    console.log(color);
     document.getElementById("picmainproductOrder").src = document.getElementById("picmainproduct").src;
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
     document.getElementById("img-order").src = document.getElementById("picmainproduct").src;
-    document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;console.log(document.getElementById("size-shirt").value)
+    document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;
     document.getElementById("description-color").style.backgroundColor = color;
     document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(shippingPrice());
 }
@@ -388,21 +389,38 @@ let timeOut = setTimeout(reset, miliseconds);
 
 //funtion to reset trhe pages when the time is over to 5 minutes
 function reset(){
-    document.getElementsByClassName("container-product").item(0).style.display="grid";
-    document.getElementsByClassName("container-profile").item(0).style.display="none";
-    document.getElementsByClassName("container-address").item(0).style.display="none";
-    document.getElementsByClassName("container-shipping").item(0).style.display="none";
-    document.getElementsByClassName("container-finish").item(0).style.display="none";
+    setInterval(function(){
+        document.getElementById("timeAdvise").style.display = "block";
+        document.getElementById("timeAdviseToGo").textContent = "Its time to start from the beginning";
+        document.getElementById("hurry").textContent = "Sorry!";
+    }, 300000);
+    setInterval(function(){
+        document.getElementsByClassName("container-product").item(0).style.display="grid";
+        document.getElementsByClassName("container-profile").item(0).style.display="none";
+        document.getElementsByClassName("container-address").item(0).style.display="none";
+        document.getElementsByClassName("container-shipping").item(0).style.display="none";
+        document.getElementsByClassName("container-finish").item(0).style.display="none";
+        document.getElementById("timeAdvise").style.display = "none";
+        document.getElementById("timeAdviseToGo").textContent = "";
+        document.getElementById("hurry").textContent = "";
+    }, 305000);
 }
 
 let time = 0;
 
 setInterval(function timeAdvertising(){
     time++;
-    document.getElementById("timeAdvise").style.display = "flex";
+    document.getElementById("timeAdvise").style.display = "block";
     document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
     document.getElementById("hurry").textContent = "Hurry up!";
+
     if(time == 5){
         time -= time;
     }
-}, 60000)
+}, 60000);
+
+setInterval(function (){
+    document.getElementById("timeAdvise").style.display = "none";
+    document.getElementById("timeAdviseToGo").textContent = "";
+    document.getElementById("hurry").textContent = "";
+}, 65000);
