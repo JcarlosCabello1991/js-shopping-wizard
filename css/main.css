@@ -61,10 +61,14 @@ header{
 .user-journey{
     display: none;
     grid-template-columns: 3.14% 29% 3.14% 29% 3.14% 29% 3.14%;
-    margin-right: -50px;
-    justify-content: center;
-    width: 80%;
-    height: auto;
+    width: 95%;
+    padding: 20px 50px;
+    color: whitesmoke;
+    margin: 5px 0px 0px 0px;
+    border-top: #424242 solid 15px;
+    z-index: 1;
+    
+    
 }
 
 .step-journey{
@@ -103,6 +107,16 @@ main{
     background: #151515;
     border-top: #424242 solid 15px;
     margin-top: 3px;
+    color: whitesmoke;
+}
+.address_title{
+    text-align: center;
+    background: #333333;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10px auto;
+    padding: 2px;
+
 }
 
 .container-product{
@@ -118,7 +132,11 @@ main{
 /* Display options for SHIPPING PAGE */
 .container-shipping {
     display: none;
-    grid-template-columns: 3fr 1fr;
+    margin: auto;
+    background: #424242;
+    padding: 100px;
+    border-radius: 20px;
+    border: #616160 solid 5px;
 }
 
 .shipping-column, .shipping-type {
@@ -162,8 +180,9 @@ main{
 .product-information{
     display: flex;
     flex-direction: row;
-    height: 50%;
-    gap: 50px;
+    background: #424242;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .container-Purchase{
@@ -173,13 +192,12 @@ main{
 /*profile contenedor de formulario*/
 .container-profile {
     display: none;
-    justify-content: flex-start;
-    flex-direction: column;
-    position: absolute;
-    margin-left: 5rem;
-    margin-top: 5rem;
-    width: 80%;
+    margin-top: 2rem;
+    width: 100%;
+    color: whitesmoke;
 }
+
+
 
 .container-address{
     display: none;
@@ -195,7 +213,13 @@ main{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
+    width: 50%;
+    text-align: center;
+    margin: 20px auto;
+    background: #343434;
+    padding: 30px 0px;
+    border-radius: 10px;
+    border: 3px solid gray;
 }
 
 .form-container label{
@@ -203,16 +227,21 @@ main{
 }
 
 .input-userName, .input-address {
-    border: 3px solid orange;
-    border-radius: 5px;
-    width: 20%;
+    border: 2px solid #ababab;
+    border-radius: 10px;
+    width: 70%;
     height: 30px;
+    margin: auto;
+    background: black;
+    color: white;
 }
 
 .input-country{
     border: 3px solid orange;
     border-radius: 5px;
-    width: 20.5%;
+    width: 20%;
+    height: 30px;
+    margin: auto;
 }
 
 .phone-prefix{
@@ -223,6 +252,7 @@ main{
 .phone-data{
     width: 20rem;
     font-size: 0.74rem;
+    
 }
 
 .phone{
@@ -233,11 +263,12 @@ main{
 
 /*profile contenedor de formulario*/
 .profile-error {
-    border: 3px solid red;
-    background-color: rgb(235, 142, 142);
+    border: 3px solid white;
+    background-color: rgb(255 0 0);
     border-radius: 5px;
-    width: 20%;
-    height: 30px;
+    width: 30%;
+    height: 20px;
+    margin: auto;
 }
 
 .product-views{
@@ -398,6 +429,8 @@ select {
     opacity: 90%;
 }
 
+
+
 button {
     float: right;
     font-family: Avant Garde, sans-serif;
@@ -437,23 +470,23 @@ footer {
     flex-direction: row;
     width: 100%;
     justify-content: flex-end;
-    margin-right: 15%;
     gap: 20px;
 }
 
 .button-form-profile{
-    background-color: black;
+    background-color: #454545;
     color: white;
 }
 
 .button-form-profile:hover{
-    background-color: greenyellow;
-    color: black
+    background-color: #fc640c;
+    color: rgb(255, 255, 255)
 }
 
 
 .phone-data {
     display: flex;
+    margin:auto;
 }
 
 .phone-data select {
