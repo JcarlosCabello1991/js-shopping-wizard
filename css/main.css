@@ -137,6 +137,7 @@ main{
     padding: 100px;
     border-radius: 20px;
     border: #616160 solid 5px;
+    margin: 20px auto;
 }
 
 .shipping-column, .shipping-type {
@@ -187,6 +188,7 @@ main{
 
 .container-Purchase{
     margin-top: 3rem;
+    margin-bottom: 150px;
 }
 
 /*profile contenedor de formulario*/
@@ -203,7 +205,7 @@ main{
     display: none;
     justify-content: flex-start;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     margin-left: 8rem;
     width: 80%;
     height: 80%;
