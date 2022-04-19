@@ -2,6 +2,7 @@ let currentPage = 'product';
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
+const smallImgs = document.querySelectorAll('.thumbnail-product');
 // Get color elements from product page, product details.
 const colorElements = document.querySelectorAll('.variants-color');
 
@@ -39,7 +40,7 @@ colorElements.forEach(color => {
 // Change main product picture and thumbnails for color selection in product details.
 function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
-    const smallImgs = document.querySelectorAll('.thumbnail-product');
+    //const smallImgs = document.querySelectorAll('.thumbnail-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
 
