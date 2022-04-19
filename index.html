@@ -64,12 +64,12 @@
                     </div>
                 </div>
                 <div class="main-product">
-                    <img class="pic-main-product" src="assets/Main Mask.png">
+                    <img id ="picmainproduct" class="pic-main-product" src="assets/Main Mask.png">
                 </div>
                 <div class="details-product">
                     <p class="quantity">Choose size and quantity</p>
                     <img id="triangle" src="assets/Triangle 1.png" alt="triangle">
-                    <p class="product-title">Assembler Gold Edition</p>
+                    <p id ="product-title" class="product-title">Assembler White Edition</p>
                     <div class="size-select">
                         <select id ="size-shirt" name="size">
                             <option value="Small">Small</option>
@@ -94,8 +94,8 @@
                     <div class="color-title">
                         <span>More colors availables</span>
                         <div class="face-mask-colors">
-                            <img id ="color-1" class="variants-color" src="./assets/pngwing.com.png" alt ="green">
-                            <img id ="color-2" class="variants-color" src="./assets/pngwing1.com.png" alt ="red">
+                            <img id ="color-1" class="variants-color" src="./assets/pngwing1.com.png" alt ="gold">
+                            <img id ="color-2" class="variants-color" src="./assets/Main Mask.png" alt ="white">
                         </div>
                     </div>
 
@@ -103,6 +103,7 @@
             </div>
             <div class="container-profile">
                 <div class="form-container">
+                    <form method="#">
                     <label for="userName" value="userName"><strong>User Name</strong></label>
                     <input type="text" id ="userName" class="input-userName"/>
                     <span></span>
@@ -115,10 +116,12 @@
                     <label for="Confirm password" value="Confirm password"><strong>Confirm password</strong></label>
                     <input type="password" id ="pwConfirm" class="input-userName"/>
                     <span></span>
+                </form>
                 </div>
             </div>
             <section class="container-address">
                 <div class="form-container">
+                    <form method="#">
                     <label for="firstName" value="firstName"><strong>First Name</strong></label>
                     <input type="text" id ="firstName" class="input-address" required>
                     <span></span>
@@ -160,6 +163,7 @@
                     <span></span>
                     <label for="Regular Address" value="regular-address">
                     <input type="checkbox" id="regular-address" class="regular-address"/>This is my regular address.</label>
+                </form>
                 </div>
                 <div id ="timeAdvise" class = "timeAdvise">
                     <p id = "timeAdviseToGo"></p>
@@ -171,11 +175,13 @@
                     <h2>Shipping</h2>
                     <div class="shipping-type">
                         <h3>Shipping type</h3>
-                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping">
+                        <form method="#">
+                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping" checked>
                         Free shipment (72H) +0€</label>
                         <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">
                         Extra shipping (48H) +5€</label>
                         <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) +10€</label>
+                    </form>
                     </div>
                     <div class="delivery-date">
                         <h3>Your order will arrive:</h3>
@@ -206,7 +212,7 @@
                     <article class ="product-information">
                         <img src="" id = "img-order">
                         <article class="order-description">
-                            <h3>Brown</h3>
+                            <h3 id ="title-name-product"></h3>
                             <p>Size: <span id = "description-size" class="description-size"></span></p>
                             <p>Color: <div id ="description-color" class="description-color"></div></p>
                             <p>ESTIMATE DELIVERY DATE</p>
@@ -221,6 +227,7 @@
                 </section>
                 <section class="container-order">
                     <p id="yourOrder">Your order</p>
+                    <img id ="picmainproductOrder" class="pic-main-product" src="#">
                     <p>Face-mask: <span id = "description-price" class ="description-price"></span></p>
                     <p>Premium Shipping: <span id = "premiumShipping" class ="premium-shipping"></span></p>
                     <p>Total: <span id ="total-price" class="total-price"></span></p>
