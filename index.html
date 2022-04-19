@@ -14,27 +14,7 @@
             <div class = "logo">
                 <img src="assets/logok-gray.png" alt="LogoGray" style="width: 50%;">
             </div>
-            <div class="user-journey">
-                <div class = "step-journey">
-                    <span><strong>Profile</strong></span>
-                    <div class ="container-circle"><div id = "profile-journey" class ="step-journey-circle"></div></div>
-                </div>
-                <div class="line"></div>
-                <div class = "step-journey">
-                    <span><strong>Address</strong></span>
-                    <div class ="container-circle"><div id = "profile-journey1" class ="step-journey-circle"></div></div>
-                </div>
-                <div class="line"></div>
-                <div class = "step-journey">
-                    <span><strong>Shipping</strong></span>
-                    <div class ="container-circle"><div id = "profile-journey2" class ="step-journey-circle"></div></div>
-                </div>
-                <div class="line"></div>
-                <div class = "step-journey">
-                    <span><strong>Finish</strong></span>
-                    <div class ="container-circle"><div id = "profile-journey3" class ="step-journey-circle"></div></div>
-                </div>
-            </div>
+            
         </header>
         <div class= "banner">
             <div guy>
@@ -42,6 +22,27 @@
                 <img id="destacada" src="assets/Assembler-Mask-vertical.png" alt="GuyModel" >
             </div>
 
+        </div>
+        <div class="user-journey">
+            <div class = "step-journey">
+                <span><strong>Profile</strong></span>
+                <div class ="container-circle"><div id = "profile-journey" class ="step-journey-circle"></div></div>
+            </div>
+            <div class="line"></div>
+            <div class = "step-journey">
+                <span><strong>Address</strong></span>
+                <div class ="container-circle"><div id = "profile-journey1" class ="step-journey-circle"></div></div>
+            </div>
+            <div class="line"></div>
+            <div class = "step-journey">
+                <span><strong>Shipping</strong></span>
+                <div class ="container-circle"><div id = "profile-journey2" class ="step-journey-circle"></div></div>
+            </div>
+            <div class="line"></div>
+            <div class = "step-journey">
+                <span><strong>Finish</strong></span>
+                <div class ="container-circle"><div id = "profile-journey3" class ="step-journey-circle"></div></div>
+            </div>
         </div>
         <main>
             <div class="container-product">
@@ -70,7 +71,7 @@
                     <img id="triangle" src="assets/Triangle 1.png" alt="triangle">
                     <p class="product-title">Assembler Gold Edition</p>
                     <div class="size-select">
-                        <select name="size">
+                        <select id ="size-shirt" name="size">
                             <option value="Small">Small</option>
                             <option value="Medium">Medium</option>
                             <option value="Large">Large</option>
@@ -88,13 +89,7 @@
                     </div>
                     <div class="button-buy">
                         <button id="btn-buy">Buy</button>
-                        <div class="size-select">
-                            <select id ="size-shirt" name="size">
-                                <option value="Small">Small</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Large">Large</option>
-                            </select>
-                        </div>
+                        
                     </div>
                     <div class="color-title">
                         <span>More colors availables</span>
@@ -107,7 +102,6 @@
                 </div>
             </div>
             <div class="container-profile">
-                <h2>Profile</h2>
                 <div class="form-container">
                     <form method="#">
                     <label for="userName" value="userName"><strong>User Name</strong></label>
@@ -126,7 +120,6 @@
                 </div>
             </div>
             <section class="container-address">
-                <h2>Address</h2>
                 <div class="form-container">
                     <form method="#">
                     <label for="firstName" value="firstName"><strong>First Name</strong></label>
