@@ -444,7 +444,6 @@ select {
     border-radius: 10px;
     padding: 5px 25px;
     margin: 10px auto;
-    
 }
 
 /*SELECT FOR PHONE DATA*/
@@ -495,7 +494,6 @@ footer {
 .footer-text{
     display: flex;
     margin-left: 45%;
-    color: rgb(255, 255, 255);
 }
 
 .buttons-form-profile{
