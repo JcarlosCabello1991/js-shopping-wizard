@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="main-product">
-                    <img class="pic-main-product" src="assets/Main Mask.png">
+                    <img id ="picmainproduct" class="pic-main-product" src="assets/Main Mask.png">
                 </div>
                 <div class="details-product">
                     <p class="quantity">Choose size and quantity</p>
@@ -178,7 +178,7 @@
                     <h2>Shipping</h2>
                     <div class="shipping-type">
                         <h3>Shipping type</h3>
-                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping">
+                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping" checked>
                         Free shipment (72H) +0€</label>
                         <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">
                         Extra shipping (48H) +5€</label>
@@ -228,6 +228,7 @@
                 </section>
                 <section class="container-order">
                     <p id="yourOrder">Your order</p>
+                    <img id ="picmainproductOrder" class="pic-main-product" src="#">
                     <p>Face-mask: <span id = "description-price" class ="description-price"></span></p>
                     <p>Premium Shipping: <span id = "premiumShipping" class ="premium-shipping"></span></p>
                     <p>Total: <span id ="total-price" class="total-price"></span></p>

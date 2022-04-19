@@ -155,6 +155,7 @@ main{
 }
 
 .container-order{
+    display: none;
     margin-top: 3rem;
     margin-left: 5rem;
 }
@@ -167,6 +168,7 @@ main{
 }
 
 .container-Purchase{
+    display: none;
     margin-top: 3rem;
 }
 
