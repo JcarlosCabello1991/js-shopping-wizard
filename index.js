@@ -253,7 +253,7 @@ function buyNowPressed(){
         document.getElementById("error-checkedButton").textContent = "";
         document.getElementById("complete").style.display="flex";
         document.getElementById("thanks").style.display="flex";
-        document.getElementById("yourOrder").textContent = "Payment details"
+        document.getElementById("yourOrder").textContent = "Thank you for your order"
         document.getElementById("buyNow").style.display ="none";
         document.getElementById("checkbox-delivery").style.display ="none";
         document.getElementById("clearButton").style.display ="none";
