@@ -37,9 +37,9 @@ header{
     height: max-content;
 }
 #destacada{
-    width: 40%;
+    width: 42%;
     float: right;
-    margin-top:-54px;
+    margin-top: -59px;
     margin-bottom: -3%;
     position: relative;
 }
@@ -392,6 +392,7 @@ h2{
 
 .color-title{
     font-family: system-ui;
+    text-align: center;
 }
 
 
@@ -402,18 +403,18 @@ select {
 
 .face-mask-colors{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
 
 }
 
 .variants-color{
-    width: 70%;
-    height: 80%;
+    width: 83%;
+    height: 88%;
     background: #424242;
     border-radius: 10px;
-    margin-top: 10px;
     padding: 5px 25px;
+    margin: 10px auto;
     
 }
 
@@ -426,7 +427,7 @@ select {
 }
 
 .variants-color:hover{
-    height: 80%;
+    height: 88%;
     background-color: rgb(35, 35, 35);
     opacity: 90%;
 }
