@@ -349,10 +349,28 @@ function displayDelivery (deliveryInHours) {
 giftCheckbox.addEventListener('change', function () {
     if (this.checked) {
         document.querySelector('.gift-options').style.display = 'block';
+        document.querySelector('#gift-message').style.maxLength = '';
     } else if (!this.checked) {
         document.querySelector('.gift-options').style.display = 'none';
     }
 })
+
+// Validate and show message for gift options text area
+const giftTextArea = document.getElementById('gift-message');
+giftTextArea.addEventListener('input', function (e) {
+    if (giftTextArea.textLength >= 200) {
+        if (document.querySelector('.gift-options').children.length <= 3) {
+            const msg = document.createElement('p');
+            msg.textContent = 'Your message cannot exceed 200 characters.'
+            msg.setAttribute('style', 'color: red; font-weight: bold; display: block');
+
+            document.querySelector('.gift-options').insertBefore(msg, document.querySelector('.gift-options label'));
+        } else {
+            giftTextArea.value = giftTextArea.value.substring(0, 200);
+        }
+    }
+})
+
 
 /* CLEAR FORM */
 const clearButton = document.getElementById("clearButton");
