@@ -149,11 +149,7 @@ function validatePage(){
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
-<<<<<<< HEAD
-        document.getElementsByTagName("main").item(0).style.height = "70vh";
-=======
         document.getElementsByTagName("main").item(0).style.height = "150vh";
->>>>>>> main
         //currentPage = 'shipping';
         console.log(currentPage);
          currentPage = 'address'
