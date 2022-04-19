@@ -3,10 +3,9 @@ let color = "white";
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
-// Get elements from thumbnail images on left of product page.
-const smallImgs = document.querySelectorAll('.thumbnail-product');
-// Get color elements from product page, product details.
-const colorElements = document.querySelectorAll('.variants-color');
+
+const smallImgs = document.querySelectorAll('.thumbnail-product'); // Get thumbnail images left.
+const colorElements = document.querySelectorAll('.variants-color'); // Get color choices.
 
 /*****************************************************************************************/
 // Set event listeners for thumbnails, so that mouseenter calls hoverThumbnails function and mouseleave removes zoom on main product picture.
@@ -44,12 +43,14 @@ function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
-    
+
     color = e.target.alt;
     if(e.target.alt == "gold"){
-        document.getElementById("product-title").textContent = " ASSEMBLER GOLD EDITION"
+        document.getElementById("product-title").textContent = " ASSEMBLER GOLD EDITION";
+        document.getElementById("price").textContent = "15.55 €";
     }else{
-        document.getElementById("product-title").textContent = " ASSEMBLER WHITE EDITION"
+        document.getElementById("product-title").textContent = " ASSEMBLER WHITE EDITION";
+        document.getElementById("price").textContent = "14.55 €";
     }
 
     smallImgs.forEach(img => {
@@ -182,8 +183,6 @@ function validatePage(){
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
         //document.getElementsByTagName("main").item(0).style.height = "150vh";
-        //currentPage = 'shipping';
-        console.log(currentPage);
          currentPage = 'address'
     }else if (currentPage ==  'profile' && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
         checkUserName();
@@ -207,17 +206,15 @@ function validatePage(){
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
-        document.getElementsByClassName("container-Purchase").item(0).style.display = "flex";
+        document.getElementsByClassName("container-Purchase").item(0).style.display = "flow-root";
         document.getElementById("title-name-product").textContent = document.getElementById("product-title").textContent;
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
-        document.getElementById("profile-journey3").style.backgroundColor = "orange";        
+        document.getElementById("profile-journey3").style.backgroundColor = "orange";
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
         currentPage = 'finish';
     }
 }
-
-
 
 function showShoppingDetails(){
     console.log(color);
@@ -248,13 +245,13 @@ function buyNowPressed(){
         document.getElementById("error-checkedButton").classList.add("profile-error");
         document.getElementById("error-checkedButton").textContent = "Please accept the terms and conditions";
     }else{
-        document.getElementsByClassName("container-order").item(0).style.display = "flex";
+        document.getElementsByClassName("container-order").item(0).style.display = "flow-root";
         document.getElementsByClassName("container-Purchase").item(0).style.display = "none";
         document.getElementById("error-checkedButton").classList.remove("profile-error");
         document.getElementById("error-checkedButton").textContent = "";
         document.getElementById("complete").style.display="flex";
         document.getElementById("thanks").style.display="flex";
-        document.getElementById("yourOrder").textContent = "Payment details"
+        document.getElementById("yourOrder").textContent = "Thank you for your order"
         document.getElementById("buyNow").style.display ="none";
         document.getElementById("checkbox-delivery").style.display ="none";
         document.getElementById("clearButton").style.display ="none";
@@ -413,7 +410,6 @@ setInterval(function timeAdvertising(){
     document.getElementById("timeAdvise").style.display = "block";
     document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
     document.getElementById("hurry").textContent = "Hurry up!";
-
     if(time == 5){
         time -= time;
     }

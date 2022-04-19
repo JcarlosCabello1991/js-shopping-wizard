@@ -21,7 +21,6 @@
                 <img id="logobanner" src="assets/Logo.png" alt="logoK">
                 <img id="destacada" src="assets/Assembler-Mask-vertical.png" alt="GuyModel" >
             </div>
-
         </div>
         <div class="user-journey">
             <div class = "step-journey">
@@ -80,7 +79,7 @@
                     <div class="price-title">
                         <span class="produt-subdetails">Assembler extra limited</span>
                         <div class="price-value">
-                            <span id="price">14.55€</span>
+                            <span id="price">14.55 €</span>
                         </div>
                     </div>
                     <div class="size-title">
@@ -89,7 +88,6 @@
                     </div>
                     <div class="button-buy">
                         <button id="btn-buy">Buy</button>
-                        
                     </div>
                     <div class="color-title">
                         <span>More colors availables</span>
@@ -103,7 +101,6 @@
             </div>
             <div class="container-profile">
                 <div class="form-container">
-                    <form method="#">
                     <label for="userName" value="userName"><strong>User Name</strong></label>
                     <input type="text" id ="userName" class="input-userName"/>
                     <span></span>
@@ -121,7 +118,6 @@
             </div>
             <section class="container-address">
                 <div class="form-container">
-                    <form method="#">
                     <label for="firstName" value="firstName"><strong>First Name</strong></label>
                     <input type="text" id ="firstName" class="input-address" required>
                     <span></span>
@@ -171,38 +167,36 @@
                 </div>-->
             </section>
             <section class="container-shipping">
-                <div class="shipping-column">
+                <section class="shipping-column">
                     <h2>Shipping</h2>
-                    <div class="shipping-type">
+                    <article class="shipping-type">
                         <h3>Shipping type</h3>
                         <form method="#">
-                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping" checked>
-                        Free shipment (72H) +0€</label>
-                        <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">
-                        Extra shipping (48H) +5€</label>
-                        <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) +10€</label>
-                    </form>
-                    </div>
-                    <div class="delivery-date">
+                            <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping">Free shipment (72H) + 0€</label>
+                            <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">Extra shipping (48H) + 5€</label>
+                            <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) + 10€</label>
+                        </form>
+                    </article>
+                    <article class="delivery-date">
                         <h3>Your order will arrive:</h3>
                         <p>ESTIMATE DELIVERY DATE:</p>
-                        <p>Between <span class="delivery-date-one">July 21, 2022 16:00</span> and <span class="delivery-date-two">July 21, 2022 20:00</span></p>
-                    </div>
-                    <div class="gift-area">
+                        <p>Between <span class="delivery-date-one"></span> and <span class="delivery-date-two"></span></p>
+                    </article>
+                    <article class="gift-area">
                         <label for="gift-checkbox"><input type="checkbox" id="gift-checkbox" class="gift-checkbox"> Is it a gift?</label>
-                        <div class="gift-options">
+                        <section class="gift-options">
                             <textarea name="gift-message" id="gift-message" cols="26" rows="8"></textarea>
                             <label for="gift-picture">Gift wrapper image</label>
                             <input type="file" accept="image/*" id="gift-wrap-picture" value="Select image">
-                        </div>
-                    </div>
-                </div>
-                <div class="timer-column">
+                        </section>
+                    </article>
+                </section>
+                <section class="timer-column">
                     <p>You started registering</p>
                     <p class="timer-display"> minutes ago.</p>
                     <br>
                     <p>Hurry up!</p>
-                </div>
+                </section>
             </section>
             <div class="container-finish">
                 <section class="container-Purchase">
@@ -217,12 +211,13 @@
                             <p>Color: <div id ="description-color" class="description-color"></div></p>
                             <p>ESTIMATE DELIVERY DATE</p>
                             <p>Between 21 of july of 2022 to 22 of july of 2022</p>
+                            <label for="checkbox-delivery" value="checkbox-delivery">
+                                <input type="checkbox" id="checkbox-delivery" class="checkbox-delivery"/>I have read and i accept the terms and conditions.
+                            </label>
+                            <p id="error-checkedButton" class ="uncheckedbox"></p>
                         </article>
                     </article>
-                    <label for="checkbox-delivery" value="checkbox-delivery">
-                        <input type="checkbox" id="checkbox-delivery" class="checkbox-delivery"/>I have read and i accept the terms and conditions.
-                    </label>
-                    <p id="error-checkedButton" class ="uncheckedbox"></p>
+                    
                     <button id="buyNow" class = "button-buyNow">Buy now</button>
                 </section>
                 <section class="container-order">
@@ -233,8 +228,7 @@
                     <div class="pictureProduct">
                     <p>Face-mask: <span id = "description-price" class ="description-price"></span></p>
                     <p>Premium Shipping: <span id = "premiumShipping" class ="premium-shipping"></span></p>
-                    <p>Total: <span id ="total-price" class="total-price"></span></p>
-                    </div>
+                    <p style="font-size: 30px;margin: auto;background: #5c5c5c;border-radius: 21px;padding: 10px;">Total: <span id ="total-price" class="total-price"></span></p>
                 </section>
             </div>
             <div id ="timeAdvise" class = "timeAdvise">

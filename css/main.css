@@ -176,7 +176,23 @@ main{
 .container-order{
     display: none;
     margin-top: 3rem;
-    margin-left: 5rem;
+    background: #424242;
+    padding: 30px;
+    border-radius: 21px;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+#yourOrder{
+    font-size: 30px;
+    font-family: system-ui;
+    font-variant-caps: all-small-caps;
+    border-bottom: solid;
+    width: 90%;
+    margin: 20px auto;
+    background: black;
+    border-radius: 11px;
+    color: #999999;
 }
 
 .product-information{
@@ -191,6 +207,15 @@ main{
     display: none;
     margin-top: 3rem;
     margin-bottom: 150px;
+}
+
+#img-order{
+    width: 40%;
+    padding: 20px 20px;
+}
+
+.order-description{
+    padding: 0px 40px;
 }
 
 /*profile contenedor de formulario*/
@@ -315,13 +340,15 @@ form{
 img.pic-main-product{
     transition: transform .2s;
     height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center center;
+}
+
+#picmainproductOrder{
+    width: 50%;
+    height: -webkit-fill-available;
 }
 
 img.pic-main-product:hover{
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 img.thumbnail-product{
@@ -479,6 +506,7 @@ footer {
 .footer-text{
     display: flex;
     margin-left: 45%;
+    color: rgb(255, 255, 255);
 }
 
 .buttons-form-profile{
