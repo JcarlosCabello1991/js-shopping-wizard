@@ -58,7 +58,7 @@ function toProfile(){
     document.getElementsByClassName("container-profile").item(0).style.display = "flex";
     document.getElementsByClassName("footer-text").item(0).style.display = "none";
     document.getElementsByClassName("buttons-form-profile").item(0).style.display = "flex";
-    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "black";
+    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "orange";
     currentPage = 'profile';
 }
 
@@ -151,7 +151,7 @@ function validatePage(){
         const addr = document.getElementsByClassName("container-address").item(0);
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
-        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
+        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
         document.getElementsByTagName("main").item(0).style.height = "70vh";
         //currentPage = 'shipping';
         console.log(currentPage);
@@ -173,7 +173,7 @@ function validatePage(){
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
             document.getElementsByClassName("container-shipping").item(0).style.display="grid";
-            document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
+            document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "orange";
             currentPage = 'shipping';
         }
     }else if(currentPage == 'shipping'){
@@ -181,7 +181,7 @@ function validatePage(){
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         document.getElementsByClassName("container-Purchase").item(0).style.display = "flex";
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
-        document.getElementById("profile-journey3").style.backgroundColor = "black";        
+        document.getElementById("profile-journey3").style.backgroundColor = "orange";        
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
         currentPage = 'finish';

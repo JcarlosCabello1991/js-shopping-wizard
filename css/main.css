@@ -193,7 +193,7 @@ main{
     height: 80%;
 }
 
-.form-container{
+.form-container, form{
     display: flex;
     flex-direction: column;
     gap: 20px;
