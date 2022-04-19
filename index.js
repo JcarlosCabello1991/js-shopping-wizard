@@ -390,7 +390,7 @@ function reset(){
         document.getElementById("timeAdvise").style.display = "block";
         document.getElementById("timeAdviseToGo").textContent = "Its time to start from the beginning";
         document.getElementById("hurry").textContent = "Sorry!";
-    }, 300000);
+    }, 305000);
     setInterval(function(){
         document.getElementsByClassName("container-product").item(0).style.display="grid";
         document.getElementsByClassName("container-profile").item(0).style.display="none";
@@ -400,7 +400,7 @@ function reset(){
         document.getElementById("timeAdvise").style.display = "none";
         document.getElementById("timeAdviseToGo").textContent = "";
         document.getElementById("hurry").textContent = "";
-    }, 305000);
+    }, miliseconds);
 }
 
 let time = 0;
