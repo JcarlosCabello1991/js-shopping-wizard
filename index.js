@@ -205,7 +205,7 @@ function validatePage(){
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
-        document.getElementsByClassName("container-Purchase").item(0).style.display = "flex";
+        document.getElementsByClassName("container-Purchase").item(0).style.display = "flow-root";
         document.getElementById("title-name-product").textContent = document.getElementById("product-title").textContent;
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
         document.getElementById("profile-journey3").style.backgroundColor = "orange";
@@ -243,13 +243,13 @@ function buyNowPressed(){
         document.getElementById("error-checkedButton").classList.add("profile-error");
         document.getElementById("error-checkedButton").textContent = "Please accept the terms and conditions";
     }else{
-        document.getElementsByClassName("container-order").item(0).style.display = "flex";
+        document.getElementsByClassName("container-order").item(0).style.display = "flow-root";
         document.getElementsByClassName("container-Purchase").item(0).style.display = "none";
         document.getElementById("error-checkedButton").classList.remove("profile-error");
         document.getElementById("error-checkedButton").textContent = "";
         document.getElementById("complete").style.display="flex";
         document.getElementById("thanks").style.display="flex";
-        document.getElementById("yourOrder").textContent = "Payment details"
+        document.getElementById("yourOrder").textContent = "Thank you for your order"
         document.getElementById("buyNow").style.display ="none";
         document.getElementById("checkbox-delivery").style.display ="none";
         document.getElementById("clearButton").style.display ="none";

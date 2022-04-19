@@ -103,7 +103,7 @@
             </div>
             <div class="container-profile">
                 <div class="form-container">
-                    <form method="#">
+                    
                     <label for="userName" value="userName"><strong>User Name</strong></label>
                     <input type="text" id ="userName" class="input-userName"/>
                     <span></span>
@@ -121,7 +121,6 @@
             </div>
             <section class="container-address">
                 <div class="form-container">
-                    <form method="#">
                     <label for="firstName" value="firstName"><strong>First Name</strong></label>
                     <input type="text" id ="firstName" class="input-address" required>
                     <span></span>
@@ -175,21 +174,12 @@
                     <h2>Shipping</h2>
                     <article class="shipping-type">
                         <h3>Shipping type</h3>
-                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping">
-                        Free shipment (72H) + 0€</label>
-                        <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">
-                        Extra shipping (48H) + 5€</label>
-                        <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) + 10€</label>
-                    </article>
-                    <article class="delivery-date">
                         <form method="#">
-                        <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping" checked>
-                        Free shipment (72H) +0€</label>
-                        <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">
-                        Extra shipping (48H) +5€</label>
-                        <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) +10€</label>
-                    </form>
-                    </div>
+                            <label for="free-shipping"><input type="radio" id="free-shipping" name="shipping-option" value="Free Shipping">Free shipment (72H) + 0€</label>
+                            <label for="extra-shipping"><input type="radio" id="extra-shipping" name="shipping-option" value="Extra Shipping">Extra shipping (48H) + 5€</label>
+                            <label for="premium-shipping"><input type="radio" id="premium-shipping" name="shipping-option" value="Premium Shipping">Premium (24H) + 10€</label>
+                        </form>
+                    </article>
                     <div class="delivery-date">
                         <h3>Your order will arrive:</h3>
                         <p>ESTIMATE DELIVERY DATE:</p>
@@ -224,12 +214,13 @@
                             <p>Color: <div id ="description-color" class="description-color"></div></p>
                             <p>ESTIMATE DELIVERY DATE</p>
                             <p>Between 21 of july of 2022 to 22 of july of 2022</p>
+                            <label for="checkbox-delivery" value="checkbox-delivery">
+                                <input type="checkbox" id="checkbox-delivery" class="checkbox-delivery"/>I have read and i accept the terms and conditions.
+                            </label>
+                            <p id="error-checkedButton" class ="uncheckedbox"></p>
                         </article>
                     </article>
-                    <label for="checkbox-delivery" value="checkbox-delivery">
-                        <input type="checkbox" id="checkbox-delivery" class="checkbox-delivery"/>I have read and i accept the terms and conditions.
-                    </label>
-                    <p id="error-checkedButton" class ="uncheckedbox"></p>
+                    
                     <button id="buyNow" class = "button-buyNow">Buy now</button>
                 </section>
                 <section class="container-order">
@@ -237,7 +228,7 @@
                     <img id ="picmainproductOrder" class="pic-main-product" src="#">
                     <p>Face-mask: <span id = "description-price" class ="description-price"></span></p>
                     <p>Premium Shipping: <span id = "premiumShipping" class ="premium-shipping"></span></p>
-                    <p>Total: <span id ="total-price" class="total-price"></span></p>
+                    <p style="font-size: 30px;margin: auto;background: #5c5c5c;border-radius: 21px;padding: 10px;">Total: <span id ="total-price" class="total-price"></span></p>
                 </section>
             </div>
         </main>
