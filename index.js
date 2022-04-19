@@ -173,7 +173,7 @@ function validatePage(){
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
-        document.getElementsByTagName("main").item(0).style.height = "150vh";
+        //document.getElementsByTagName("main").item(0).style.height = "150vh";
         //currentPage = 'shipping';
         console.log(currentPage);
          currentPage = 'address'
