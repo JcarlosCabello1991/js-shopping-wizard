@@ -2,6 +2,8 @@ let currentPage = 'product';
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
+// Get elements from thumbnail images on left of product page.
+const smallImgs = document.querySelectorAll('.thumbnail-product');
 // Get color elements from product page, product details.
 const colorElements = document.querySelectorAll('.variants-color');
 
@@ -15,7 +17,6 @@ colorElements.forEach(color => {
 // Change main product picture and thumbnails for color selection in product details.
 function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
-    const smallImgs = document.querySelectorAll('.thumbnail-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
 
@@ -23,6 +24,28 @@ function selectColor(e) {
         img.src = e.target.src;
     })
 };
+
+// Set event listeners for thumbnails, so that mouseenter calls hoverThumbnails function and mouseleave removes zoom on main product picture.
+smallImgs.forEach(img => {
+    img.addEventListener('mouseenter', function (e) {
+        hoverThumbnails(e);
+    })
+})
+
+smallImgs.forEach(img => {
+    img.addEventListener('mouseleave', function () {
+        const pic = document.querySelector('.pic-main-product');
+        pic.removeAttribute('style', 'transform: scale(1.3); transition: 0.75s ease-in-out');
+    })
+})
+
+// Change main product picture when hovering over miniature views to left side / product page.
+function hoverThumbnails (e) {
+    const mainProductDiv = document.querySelector('.main-product');
+    const pic = document.querySelector('.pic-main-product');
+    pic.src = e.target.src;
+    pic.setAttribute('style', 'transform: scale(1.3); transition: 0.75s ease-in-out');
+}
 
 document.getElementById("btn-buy").addEventListener("click", toProfile);
 
@@ -140,7 +163,7 @@ function validatePage(){
             pwConfirmMsg.classList.add('profile-error');
         }
     }else if(currentPage == 'address'){ //Shows the page Shipping
-    
+
         if(checkAddress() == false){
             //mensajes de error
             //alert("Some field is wrong!!")
@@ -202,8 +225,6 @@ function buyNowPressed(){
         document.getElementById("nextButton").style.display ="none";
     }
 }
-
-
 
 function checkAddress(){
     /*if(document.getElementById("firstName").value.length > 20 || document.getElementById("firstName").value == ""){
@@ -300,7 +321,6 @@ giftCheckbox.addEventListener('change', function () {
         document.querySelector('.gift-options').style.display = 'none';
     }
 })
-
 
 /* CLEAR FORM */
 const clearButton = document.getElementById("clearButton");
