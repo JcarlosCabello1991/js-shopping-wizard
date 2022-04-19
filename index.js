@@ -3,10 +3,9 @@ let color = "";
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
-// Get elements from thumbnail images on left of product page.
-const smallImgs = document.querySelectorAll('.thumbnail-product');
-// Get color elements from product page, product details.
-const colorElements = document.querySelectorAll('.variants-color');
+
+const smallImgs = document.querySelectorAll('.thumbnail-product'); // Get thumbnail images left.
+const colorElements = document.querySelectorAll('.variants-color'); // Get color choices.
 
 /*****************************************************************************************/
 // Set event listeners for thumbnails, so that mouseenter calls hoverThumbnails function and mouseleave removes zoom on main product picture.
@@ -44,12 +43,14 @@ function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
-    
+
     color = e.target.alt;
     if(e.target.alt == "gold"){
-        document.getElementById("product-title").textContent = " ASSEMBLER GOLD EDITION"
+        document.getElementById("product-title").textContent = " ASSEMBLER GOLD EDITION";
+        document.getElementById("price").textContent = "15.55 €";
     }else{
-        document.getElementById("product-title").textContent = " ASSEMBLER WHITE EDITION"
+        document.getElementById("product-title").textContent = " ASSEMBLER WHITE EDITION";
+        document.getElementById("price").textContent = "14.55 €";
     }
 
     smallImgs.forEach(img => {
