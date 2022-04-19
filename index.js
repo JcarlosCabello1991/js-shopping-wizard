@@ -56,7 +56,7 @@ function toProfile(){
     document.getElementsByClassName("container-profile").item(0).style.display = "flex";
     document.getElementsByClassName("footer-text").item(0).style.display = "none";
     document.getElementsByClassName("buttons-form-profile").item(0).style.display = "flex";
-    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "black";
+    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "orange";
     currentPage = 'profile';
 }
 
@@ -141,7 +141,6 @@ let btnNext = document.getElementById("nextButton");
 btnNext.addEventListener("click", validatePage);
 
 function validatePage(){
-    
     if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
         /*Hide the current screen and display the next one*/
 
@@ -149,7 +148,7 @@ function validatePage(){
         const addr = document.getElementsByClassName("container-address").item(0);
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
-        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "black";
+        document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
         document.getElementsByTagName("main").item(0).style.height = "70vh";
         //currentPage = 'shipping';
         console.log(currentPage);
@@ -163,7 +162,6 @@ function validatePage(){
             pwConfirmMsg.classList.add('profile-error');
         }
     }else if(currentPage == 'address'){ //Shows the page Shipping
-
         if(checkAddress() == false){
             //mensajes de error
             //alert("Some field is wrong!!")
@@ -171,14 +169,14 @@ function validatePage(){
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
             document.getElementsByClassName("container-shipping").item(0).style.display="grid";
-            document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
+            document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "orange";
             currentPage = 'shipping';
         }
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
-        document.getElementById("profile-journey3").style.backgroundColor = "black";        
+        document.getElementById("profile-journey3").style.backgroundColor = "orange";        
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
         currentPage = 'finish';
@@ -252,7 +250,6 @@ const inputPhone = document.getElementById('phone');
 inputPhone.value = '+376 ';
 
 prefixes.addEventListener('change', function (e) {
-
     switch (e.target.value) {
         case 'and':
             inputPhone.value = '+376 ';
