@@ -2,6 +2,8 @@ let currentPage = 'product';
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
+// Get elements from thumbnail images on left of product page.
+const smallImgs = document.querySelectorAll('.thumbnail-product');
 // Get color elements from product page, product details.
 const colorElements = document.querySelectorAll('.variants-color');
 
@@ -15,7 +17,6 @@ colorElements.forEach(color => {
 // Change main product picture and thumbnails for color selection in product details.
 function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
-    const smallImgs = document.querySelectorAll('.thumbnail-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
 
@@ -23,6 +24,28 @@ function selectColor(e) {
         img.src = e.target.src;
     })
 };
+
+// Set event listeners for thumbnails, so that mouseenter calls hoverThumbnails function and mouseleave removes zoom on main product picture.
+smallImgs.forEach(img => {
+    img.addEventListener('mouseenter', function (e) {
+        hoverThumbnails(e);
+    })
+})
+
+smallImgs.forEach(img => {
+    img.addEventListener('mouseleave', function () {
+        const pic = document.querySelector('.pic-main-product');
+        pic.removeAttribute('style', 'transform: scale(1.3); transition: 0.75s ease-in-out');
+    })
+})
+
+// Change main product picture when hovering over miniature views to left side / product page.
+function hoverThumbnails (e) {
+    const mainProductDiv = document.querySelector('.main-product');
+    const pic = document.querySelector('.pic-main-product');
+    pic.src = e.target.src;
+    pic.setAttribute('style', 'transform: scale(1.3); transition: 0.75s ease-in-out');
+}
 
 document.getElementById("btn-buy").addEventListener("click", toProfile);
 
@@ -33,7 +56,7 @@ function toProfile(){
     document.getElementsByClassName("container-profile").item(0).style.display = "flex";
     document.getElementsByClassName("footer-text").item(0).style.display = "none";
     document.getElementsByClassName("buttons-form-profile").item(0).style.display = "flex";
-    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "black";
+    document.getElementsByClassName("step-journey-circle").item(0).style.backgroundColor = "orange";
     currentPage = 'profile';
 }
 
@@ -118,7 +141,6 @@ let btnNext = document.getElementById("nextButton");
 btnNext.addEventListener("click", validatePage);
 
 function validatePage(){
-    
     if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
         /*Hide the current screen and display the next one*/
 
@@ -140,7 +162,6 @@ function validatePage(){
             pwConfirmMsg.classList.add('profile-error');
         }
     }else if(currentPage == 'address'){ //Shows the page Shipping
-    
         if(checkAddress() == false){
             //mensajes de error
             //alert("Some field is wrong!!")
@@ -148,14 +169,14 @@ function validatePage(){
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
             document.getElementsByClassName("container-shipping").item(0).style.display="grid";
-            document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "black";
+            document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "orange";
             currentPage = 'shipping';
         }
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
-        document.getElementById("profile-journey3").style.backgroundColor = "black";        
+        document.getElementById("profile-journey3").style.backgroundColor = "orange";        
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
         showShoppingDetails();
         currentPage = 'finish';
@@ -203,8 +224,6 @@ function buyNowPressed(){
     }
 }
 
-
-
 function checkAddress(){
     /*if(document.getElementById("firstName").value.length > 20 || document.getElementById("firstName").value == ""){
         return false;
@@ -231,7 +250,6 @@ const inputPhone = document.getElementById('phone');
 inputPhone.value = '+376 ';
 
 prefixes.addEventListener('change', function (e) {
-
     switch (e.target.value) {
         case 'and':
             inputPhone.value = '+376 ';
@@ -300,7 +318,6 @@ giftCheckbox.addEventListener('change', function () {
         document.querySelector('.gift-options').style.display = 'none';
     }
 })
-
 
 /* CLEAR FORM */
 const clearButton = document.getElementById("clearButton");
