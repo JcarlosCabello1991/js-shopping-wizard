@@ -247,7 +247,7 @@ function buyNowPressed(){
         document.getElementById("error-checkedButton").classList.add("profile-error");
         document.getElementById("error-checkedButton").textContent = "Please accept the terms and conditions";
     }else{
-        document.getElementsByClassName("container-order").item(0).style.display = "flex";
+        document.getElementsByClassName("container-order").item(0).style.display = "flow-root";
         document.getElementsByClassName("container-Purchase").item(0).style.display = "none";
         document.getElementById("error-checkedButton").classList.remove("profile-error");
         document.getElementById("error-checkedButton").textContent = "";

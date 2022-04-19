@@ -176,7 +176,10 @@ main{
 .container-order{
     display: none;
     margin-top: 3rem;
-    margin-left: 5rem;
+    background: #424242;
+    padding: 30px;
+    border-radius: 21px;
+    text-align: center;
 }
 
 .product-information{
@@ -313,9 +316,11 @@ main{
 img.pic-main-product{
     transition: transform .2s;
     height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center center;
+}
+
+#picmainproductOrder{
+    width: 50%;
+    height: -webkit-fill-available;
 }
 
 img.pic-main-product:hover{
