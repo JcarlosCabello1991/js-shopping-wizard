@@ -1,4 +1,5 @@
 let currentPage = 'product';
+let color = "";
 const miliseconds = 300000;
 const arrayPrefix = [376,34,33,49,30];
 const mainProductDiv = document.querySelector('.main-product');
@@ -43,6 +44,13 @@ function selectColor(e) {
     const mainProductDiv = document.querySelector('.main-product');
     const pic = document.querySelector('.pic-main-product');    
     pic.src = e.target.src;
+    
+    color = e.target.alt;
+    if(e.target.alt == "gold"){
+        document.getElementById("product-title").textContent = " ASSEMBLER GOLD EDITION"
+    }else{
+        document.getElementById("product-title").textContent = " ASSEMBLER WHITE EDITION"
+    }
 
     smallImgs.forEach(img => {
         img.src = e.target.src;
@@ -200,6 +208,7 @@ function validatePage(){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
         document.getElementsByClassName("container-Purchase").item(0).style.display = "flex";
+        document.getElementById("title-name-product").textContent = document.getElementById("product-title").textContent;
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
         document.getElementById("profile-journey3").style.backgroundColor = "orange";        
         document.getElementsByClassName("buttons-form-profile").item(0).style.display="none";
@@ -215,7 +224,7 @@ function showShoppingDetails(){
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
     document.getElementById("img-order").src = document.getElementById("picmainproduct").src;
     document.getElementById("description-size").textContent = document.getElementById("size-shirt").value;console.log(document.getElementById("size-shirt").value)
-    document.getElementById("description-color").style.backgroundColor = document.getElementById("color-1").alt;
+    document.getElementById("description-color").style.backgroundColor = color;
     document.getElementById("total-price").textContent = parseFloat(document.getElementById("price").textContent) + parseFloat(shippingPrice());
 }
 
