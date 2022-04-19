@@ -207,7 +207,7 @@ function validatePage(){
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
         document.getElementsByClassName("container-finish").item(0).style.display="flex";
-        document.getElementsByClassName("container-Purchase").item(0).style.display = "flex";
+        document.getElementsByClassName("container-Purchase").item(0).style.display = "flow-root";
         document.getElementById("title-name-product").textContent = document.getElementById("product-title").textContent;
         document.getElementById("premiumShipping").textContent = shippingPrice() + " €";
         document.getElementById("profile-journey3").style.backgroundColor = "orange";        

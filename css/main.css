@@ -193,6 +193,15 @@ main{
     margin-bottom: 150px;
 }
 
+#img-order{
+    width: 40%;
+    padding: 20px 20px;
+}
+
+.order-description{
+    padding: 0px 40px;
+}
+
 /*profile contenedor de formulario*/
 .container-profile {
     display: none;
