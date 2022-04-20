@@ -83,7 +83,6 @@ function hoverThumbnails (e) {
 document.getElementById("btn-buy").addEventListener("click", toProfile);
 
 function toProfile(){
-    document.getElementsByClassName("logo").item(0).style.display = "none";
     document.getElementsByClassName("user-journey").item(0).style.display = "grid";
     document.getElementsByClassName("container-product").item(0).style.display = "none";
     document.getElementsByClassName("container-profile").item(0).style.display = "flex";
@@ -400,30 +399,34 @@ function clearForm(){
     }
 }
 
-let timeOut = setTimeout(reset, miliseconds);
+let fInterval = setInterval(msgBegin, miliseconds);
 
-//funtion to reset trhe pages when the time is over to 5 minutes
-function reset(){
-    setInterval(function(){
-        document.getElementById("timeAdvise").style.display = "block";
-        document.getElementById("timeAdviseToGo").textContent = "Its time to start from the beginning";
-        document.getElementById("hurry").textContent = "Sorry!";
-    }, 305000);
-    setInterval(function(){
-        document.getElementsByClassName("container-product").item(0).style.display="grid";
-        document.getElementsByClassName("container-profile").item(0).style.display="none";
-        document.getElementsByClassName("container-address").item(0).style.display="none";
-        document.getElementsByClassName("container-shipping").item(0).style.display="none";
-        document.getElementsByClassName("container-finish").item(0).style.display="none";
-        document.getElementById("timeAdvise").style.display = "none";
-        document.getElementById("timeAdviseToGo").textContent = "";
-        document.getElementById("hurry").textContent = "";
-    }, miliseconds);
+function msgBegin(){
+    document.getElementById("timeAdvise").style.display = "block";
+    document.getElementById("timeAdviseToGo").textContent = "Its time to start from the beginning";
+    document.getElementById("hurry").textContent = "Sorry!";
+    setTimeout(returnFirstPage, 5000);
 }
 
-let time = 0;
+function returnFirstPage(){
+    document.getElementsByClassName("container-product").item(0).style.display="grid";
+    document.getElementsByClassName("container-profile").item(0).style.display="none";
+    document.getElementsByClassName("container-address").item(0).style.display="none";
+    document.getElementsByClassName("container-shipping").item(0).style.display="none";
+    document.getElementsByClassName("container-finish").item(0).style.display="none";
+    document.getElementById("timeAdvise").style.display = "none";
+    document.getElementById("timeAdviseToGo").textContent = "";
+    document.getElementById("hurry").textContent = "";
+    clearInterval(fInterval);
+    fInterval = setInterval(msgBegin, miliseconds);
+}
 
-setInterval(function timeAdvertising(){
+/******************** */
+
+let time = 0;
+let sInterval = setInterval(timeAdvertising, 60000);
+
+function timeAdvertising(){
     time++;
     document.getElementById("timeAdvise").style.display = "block";
     document.getElementById("timeAdviseToGo").textContent = "You started registering " + time + " minutes ago.";
@@ -431,10 +434,13 @@ setInterval(function timeAdvertising(){
     if(time == 5){
         time -= time;
     }
-}, 60000);
+    setTimeout(hiddeTimeAdvertising, 5000);
+}
 
-setInterval(function (){
+function hiddeTimeAdvertising(){
     document.getElementById("timeAdvise").style.display = "none";
     document.getElementById("timeAdviseToGo").textContent = "";
     document.getElementById("hurry").textContent = "";
-}, 65000);
+    clearInterval(sInterval);
+    fInterval = setInterval(timeAdvertising, 60000);
+}
