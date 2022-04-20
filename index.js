@@ -452,5 +452,5 @@ function hiddeTimeAdvertising(){
     document.getElementById("timeAdviseToGo").textContent = "";
     document.getElementById("hurry").textContent = "";
     clearInterval(sInterval);
-    fInterval = setInterval(timeAdvertising, 60000);
+    sInterval = setInterval(timeAdvertising, 60000);
 }
