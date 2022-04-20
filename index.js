@@ -182,7 +182,6 @@ function validatePage(){
         addr.style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
-        //document.getElementsByTagName("main").item(0).style.height = "150vh";
          currentPage = 'address'
     }else if (currentPage ==  'profile' && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
         checkUserName();
@@ -260,7 +259,7 @@ function buyNowPressed(){
 }
 
 function checkAddress(){
-    /*if(document.getElementById("firstName").value.length > 20 || document.getElementById("firstName").value == ""){
+    if(document.getElementById("firstName").value.length > 20 || document.getElementById("firstName").value == ""){
         return false;
     }else if(document.getElementById("lastName").value.length > 20 || document.getElementById("lastName").value == ""){
         return false;
@@ -273,7 +272,7 @@ function checkAddress(){
     }else if(document.getElementById("postCode").value == "" || document.getElementById("postCode").value.length > 5){
         return false;
     }else if(document.getElementById('phone').value.split(" ")[1].length > 9){
-        return false;    }*/
+        return false;    }
 
     return true;
 }
