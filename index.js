@@ -162,7 +162,7 @@ function checkPassword(){
         pwConfirmMsg.textContent = "";
         flag = 0;
     }
-    console.log(pwd.value + " " + strRegex.test(pwd.value))
+    
     if(pwd.value.length > 20 || pwd.value.length < 8 || !strRegex.test(pwd.value)){
         pwMsg.textContent = "Error does not meet password requirements";
         pwMsg.classList.add('profile-error');
@@ -173,24 +173,25 @@ function checkPassword(){
 let btnNext = document.getElementById("nextButton");
 btnNext.addEventListener("click", validatePage);
 
-function validatePage(){
-    if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
-        /*Hide the current screen and display the next one*/
+function checkProfile () {
+    checkUserName();
+    checkEmail();
+    checkPassword();
+    if (confirmPwd.value === pwd.value && flag == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
+function validatePage(){
+    if (currentPage == 'profile' && checkProfile() === true) {
+        /*Hide the current screen and display the next one*/
         flag = 0;
-        const addr = document.getElementsByClassName("container-address").item(0);
-        addr.style.display = "flex";
+        document.getElementsByClassName("container-address").item(0).style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
          currentPage = 'address'
-    }else if (currentPage ==  'profile' && document.getElementsByClassName("container-profile").item(0).style.display != "none"){
-        checkUserName();
-        checkEmail();
-        checkPassword();
-        if(confirmPwd.value == "" || confirmPwd.value != pwd.value){
-            pwConfirmMsg.textContent = "Error does not meet password requirements";
-            pwConfirmMsg.classList.add('profile-error');
-        }
     }else if(currentPage == 'address'){ //Shows the page Shipping
         if(checkAddress() == false){
             //mensajes de error
@@ -216,7 +217,6 @@ function validatePage(){
 }
 
 function showShoppingDetails(){
-    console.log(color);
     document.getElementById("picmainproductOrder").src = document.getElementById("picmainproduct").src;
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
     document.getElementById("img-order").src = document.getElementById("picmainproduct").src;
@@ -267,7 +267,11 @@ function checkAddress(){
         return false;
     }else if(document.getElementById("address1").value == "" || document.getElementById("address1").value.length > 50){
         return false;
+<<<<<<< HEAD
     }else if( document.getElementById("address2").value.length > 50){
+=======
+    }else if(document.getElementById("address2").value.length > 50){
+>>>>>>> blake
         return false;
     }else if(document.getElementById("postCode").value == "" || document.getElementById("postCode").value.length > 5){
         return false;
