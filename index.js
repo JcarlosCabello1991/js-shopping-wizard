@@ -267,7 +267,7 @@ function checkAddress(){
         return false;
     }else if(document.getElementById("address1").value == "" || document.getElementById("address1").value.length > 50){
         return false;
-    }else if(document.getElementById("address2").value != "" || document.getElementById("address2").value.length > 50){
+    }else if( document.getElementById("address2").value.length > 50){
         return false;
     }else if(document.getElementById("postCode").value == "" || document.getElementById("postCode").value.length > 5){
         return false;
