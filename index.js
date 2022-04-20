@@ -176,7 +176,6 @@ btnNext.addEventListener("click", validatePage);
 function validatePage(){
     if(confirmPwd.value === pwd.value && flag == 0 && pwd.value != "" && currentPage == 'profile'){
         /*Hide the current screen and display the next one*/
-
         flag = 0;
         const addr = document.getElementsByClassName("container-address").item(0);
         addr.style.display = "flex";
@@ -216,7 +215,6 @@ function validatePage(){
 }
 
 function showShoppingDetails(){
-    console.log(color);
     document.getElementById("picmainproductOrder").src = document.getElementById("picmainproduct").src;
     document.getElementById("description-price").textContent = document.getElementById("price").textContent;
     document.getElementById("img-order").src = document.getElementById("picmainproduct").src;
@@ -267,7 +265,7 @@ function checkAddress(){
         return false;
     }else if(document.getElementById("address1").value == "" || document.getElementById("address1").value.length > 50){
         return false;
-    }else if(document.getElementById("address2").value != "" || document.getElementById("address2").value.length > 50){
+    }else if(document.getElementById("address2").value.length > 50){
         return false;
     }else if(document.getElementById("postCode").value == "" || document.getElementById("postCode").value.length > 5){
         return false;
