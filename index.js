@@ -170,9 +170,6 @@ function checkPassword(){
     }
 }
 
-let btnNext = document.getElementById("nextButton");
-btnNext.addEventListener("click", validatePage);
-
 function checkProfile () {
     checkUserName();
     checkEmail();
@@ -184,6 +181,9 @@ function checkProfile () {
     }
 }
 
+let btnNext = document.getElementById("nextButton");
+btnNext.addEventListener("click", validatePage);
+
 function validatePage(){
     if (currentPage == 'profile' && checkProfile() === true) {
         /*Hide the current screen and display the next one*/
@@ -191,17 +191,19 @@ function validatePage(){
         document.getElementsByClassName("container-address").item(0).style.display = "flex";
         document.getElementsByClassName("container-profile").item(0).style.display = "none";
         document.getElementsByClassName("step-journey-circle").item(1).style.backgroundColor = "orange";
-         currentPage = 'address'
+        currentPage = 'address';
     }else if(currentPage == 'address'){ //Shows the page Shipping
         if(checkAddress() == false){
             //mensajes de error
-            alert("Some field is wrong!!")
+            alert("One or more fields is wrong!!")
         }else{
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
             document.getElementsByClassName("container-shipping").item(0).style.display="grid";
             document.getElementsByClassName("step-journey-circle").item(2).style.backgroundColor = "orange";
             currentPage = 'shipping';
+            displayTime();
+            setInterval(displayTime, 5000);
         }
     }else if(currentPage == 'shipping'){
         document.getElementsByClassName("container-shipping").item(0).style.display="none";
@@ -267,17 +269,13 @@ function checkAddress(){
         return false;
     }else if(document.getElementById("address1").value == "" || document.getElementById("address1").value.length > 50){
         return false;
-<<<<<<< HEAD
-    }else if( document.getElementById("address2").value.length > 50){
-=======
     }else if(document.getElementById("address2").value.length > 50){
->>>>>>> blake
         return false;
     }else if(document.getElementById("postCode").value == "" || document.getElementById("postCode").value.length > 5){
         return false;
     }else if(document.getElementById('phone').value.split(" ")[1].length > 9){
-        return false;    }
-
+        return false;    
+    }
     return true;
 }
 
@@ -352,7 +350,6 @@ function displayDelivery (deliveryInHours) {
 giftCheckbox.addEventListener('change', function () {
     if (this.checked) {
         document.querySelector('.gift-options').style.display = 'block';
-        document.querySelector('#gift-message').style.maxLength = '';
     } else if (!this.checked) {
         document.querySelector('.gift-options').style.display = 'none';
     }
@@ -374,6 +371,16 @@ giftTextArea.addEventListener('input', function (e) {
     }
 })
 
+// Display remaining time on shipping page
+function displayTime () {
+    let timerSpan = document.querySelector('.timer-display');
+    timerSpan.textContent = time;
+    if (time < 1) {
+        timerSpan.textContent = `less than 1`;
+    } else {
+        timerSpan.textContent = `${time}`;
+    }
+}
 
 /* CLEAR FORM */
 const clearButton = document.getElementById("clearButton");
@@ -409,7 +416,7 @@ let timeOut = setTimeout(reset, miliseconds);
 function reset(){
     setInterval(function(){
         document.getElementById("timeAdvise").style.display = "block";
-        document.getElementById("timeAdviseToGo").textContent = "Its time to start from the beginning";
+        document.getElementById("timeAdviseToGo").textContent = "It's time to start from the beginning";
         document.getElementById("hurry").textContent = "Sorry!";
     }, 305000);
     setInterval(function(){
