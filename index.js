@@ -194,7 +194,7 @@ function validatePage(){
     }else if(currentPage == 'address'){ //Shows the page Shipping
         if(checkAddress() == false){
             //mensajes de error
-            //alert("Some field is wrong!!")
+            alert("Some field is wrong!!")
         }else{
             //ocultamos esta pagina y hacemos visible la siguiente
             document.getElementsByClassName("container-address").item(0).style.display="none";
